@@ -21,8 +21,9 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'autoprefixer-rails'
 
 #es el servidor que va a levantar nuestra aplicación dentro de Heroku
-gem 'rails_12factor', group: :production  
-gem 'unicorn'
+group :production do
+  gem "unicorn"
+end
 
 ruby '2.3.1'
 
