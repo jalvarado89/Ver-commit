@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Id: 
+  Placa: MyString
+  Modelo: MyString
+  Marca: MyString
+  Driver_Id: 1
+
+two:
+  Id: 
+  Placa: MyString
+  Modelo: MyString
+  Marca: MyString
+  Driver_Id: 1
