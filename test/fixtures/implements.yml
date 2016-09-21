@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Id: 
+  Num_Chasis: MyString
+  Num_Placa: MyString
+  Empresa: MyString
+  Id_Camion: MyString
+
+two:
+  Id: 
+  Num_Chasis: MyString
+  Num_Placa: MyString
+  Empresa: MyString
+  Id_Camion: MyString

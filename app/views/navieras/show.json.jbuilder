@@ -1,0 +1,1 @@
+json.partial! "navieras/naviera", naviera: @naviera

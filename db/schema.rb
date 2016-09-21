@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160915213707) do
+ActiveRecord::Schema.define(version: 20160921032154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cliente_navieras", force: :cascade do |t|
+    t.serial   "Id",         null: false
+    t.string   "Nombre"
+    t.string   "Telefono"
+    t.string   "Correo"
+    t.integer  "Id_Naviera"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.serial   "Id",         null: false
+    t.string   "Nombre"
+    t.string   "Telefono"
+    t.string   "Correo"
+    t.string   "Direccion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "drivers", force: :cascade do |t|
     t.serial   "Id",         null: false
@@ -24,21 +44,73 @@ ActiveRecord::Schema.define(version: 20160915213707) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "implements", force: :cascade do |t|
     t.serial   "Id",         null: false
-    t.string   "Nombre"
+    t.string   "Num_Chasis"
+    t.string   "Num_Placa"
     t.string   "Empresa"
-    t.string   "Telefono"
-    t.string   "Correo"
-    t.string   "Nick"
-    t.string   "Password"
+    t.string   "Id_Camion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "usuarios", force: :cascade do |t|
+  create_table "navieras", force: :cascade do |t|
     t.serial   "Id",         null: false
     t.string   "Nombre"
+    t.string   "Telefono"
+    t.string   "Correo"
+    t.string   "Direccion"
+    t.integer  "Id_Empresa"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "planta", force: :cascade do |t|
+    t.serial   "Id",         null: false
+    t.string   "Nombre"
+    t.string   "Telefono"
+    t.string   "Correo"
+    t.string   "Direccion"
+    t.integer  "Id_Empresa"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "predios", force: :cascade do |t|
+    t.serial   "Id",         null: false
+    t.string   "Nombre"
+    t.string   "Telefono"
+    t.string   "Correo"
+    t.string   "Direccion"
+    t.integer  "Id_Empresa"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "routes", force: :cascade do |t|
+    t.serial   "Id",             null: false
+    t.string   "Nombre"
+    t.integer  "Precio_Empresa"
+    t.integer  "Precio_Chofer"
+    t.integer  "Id_Empresa"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "trucks", force: :cascade do |t|
+    t.serial   "Id",         null: false
+    t.string   "Placa"
+    t.string   "Modelo"
+    t.string   "Marca"
+    t.integer  "Driver_Id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.serial   "Id",         null: false
+    t.string   "Nombre"
+    t.string   "Apellidos"
     t.string   "Empresa"
     t.string   "Telefono"
     t.string   "Correo"

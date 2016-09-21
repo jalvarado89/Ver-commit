@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cliente Navieras</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Telefono</th>
+      <th>Correo</th>
+      <th>Id naviera</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cliente_navieras.each do |cliente_naviera| %>
+      <tr>
+        <td><%= cliente_naviera.Id %></td>
+        <td><%= cliente_naviera.Nombre %></td>
+        <td><%= cliente_naviera.Telefono %></td>
+        <td><%= cliente_naviera.Correo %></td>
+        <td><%= cliente_naviera.Id_Naviera %></td>
+        <td><%= link_to 'Show', cliente_naviera %></td>
+        <td><%= link_to 'Edit', edit_cliente_naviera_path(cliente_naviera) %></td>
+        <td><%= link_to 'Destroy', cliente_naviera, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cliente Naviera', new_cliente_naviera_path %>

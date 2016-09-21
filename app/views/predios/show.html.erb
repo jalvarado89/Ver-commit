@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @predio.Id %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @predio.Nombre %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @predio.Telefono %>
+</p>
+
+<p>
+  <strong>Correo:</strong>
+  <%= @predio.Correo %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @predio.Direccion %>
+</p>
+
+<p>
+  <strong>Id empresa:</strong>
+  <%= @predio.Id_Empresa %>
+</p>
+
+<%= link_to 'Edit', edit_predio_path(@predio) %> |
+<%= link_to 'Back', predios_path %>

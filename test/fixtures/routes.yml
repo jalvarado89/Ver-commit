@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Id: 
+  Nombre: MyString
+  Precio_Empresa: 1
+  Precio_Chofer: 1
+  Id_Empresa: 1
+
+two:
+  Id: 
+  Nombre: MyString
+  Precio_Empresa: 1
+  Precio_Chofer: 1
+  Id_Empresa: 1

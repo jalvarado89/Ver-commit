@@ -1,0 +1,2 @@
+module NavierasHelper
+end
