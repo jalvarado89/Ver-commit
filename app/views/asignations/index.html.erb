@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Asignations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cod asignacion</th>
+      <th>Num semana</th>
+      <th>Fecha colocacion</th>
+      <th>Hora colocacion</th>
+      <th>Activo</th>
+      <th>Cod empresa</th>
+      <th>Cod predio retiro</th>
+      <th>Cod predio entrega</th>
+      <th>Cod planta</th>
+      <th>Cod naviera</th>
+      <th>Cod cliente</th>
+      <th>Cod ruta</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @asignations.each do |asignation| %>
+      <tr>
+        <td><%= asignation.Cod_Asignacion %></td>
+        <td><%= asignation.Num_Semana %></td>
+        <td><%= asignation.Fecha_Colocacion %></td>
+        <td><%= asignation.Hora_Colocacion %></td>
+        <td><%= asignation.Activo %></td>
+        <td><%= asignation.Cod_Empresa %></td>
+        <td><%= asignation.Cod_Predio_Retiro %></td>
+        <td><%= asignation.Cod_Predio_Entrega %></td>
+        <td><%= asignation.Cod_Planta %></td>
+        <td><%= asignation.Cod_Naviera %></td>
+        <td><%= asignation.Cod_Cliente %></td>
+        <td><%= asignation.Cod_Ruta %></td>
+        <td><%= link_to 'Show', asignation %></td>
+        <td><%= link_to 'Edit', edit_asignation_path(asignation) %></td>
+        <td><%= link_to 'Destroy', asignation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Asignation', new_asignation_path %>

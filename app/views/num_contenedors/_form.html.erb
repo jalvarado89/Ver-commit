@@ -1,0 +1,57 @@
+<%= form_for(num_contenedor) do |f| %>
+  <% if num_contenedor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(num_contenedor.errors.count, "error") %> prohibited this num_contenedor from being saved:</h2>
+
+      <ul>
+      <% num_contenedor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Id %>
+    <%= f.text_field :Id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Sigla %>
+    <%= f.text_field :Sigla %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Numero %>
+    <%= f.text_field :Numero %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Marchamo %>
+    <%= f.text_field :Marchamo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Temperatura %>
+    <%= f.text_field :Temperatura %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Cant_Ejes %>
+    <%= f.number_field :Cant_Ejes %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Activo %>
+    <%= f.check_box :Activo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Cod_Asignacion %>
+    <%= f.number_field :Cod_Asignacion %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

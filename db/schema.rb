@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921032154) do
+ActiveRecord::Schema.define(version: 20160921052026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "asignations", force: :cascade do |t|
+    t.serial   "Cod_Asignacion",     null: false
+    t.integer  "Num_Semana"
+    t.string   "Fecha_Colocacion"
+    t.string   "Hora_Colocacion"
+    t.boolean  "Activo"
+    t.integer  "Cod_Empresa"
+    t.integer  "Cod_Predio_Retiro"
+    t.integer  "Cod_Predio_Entrega"
+    t.integer  "Cod_Planta"
+    t.integer  "Cod_Naviera"
+    t.integer  "Cod_Cliente"
+    t.integer  "Cod_Ruta"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "cliente_navieras", force: :cascade do |t|
     t.serial   "Id",         null: false
@@ -65,6 +82,19 @@ ActiveRecord::Schema.define(version: 20160921032154) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "num_contenedors", force: :cascade do |t|
+    t.serial   "Id",             null: false
+    t.string   "Sigla"
+    t.string   "Numero"
+    t.string   "Marchamo"
+    t.string   "Temperatura"
+    t.integer  "Cant_Ejes"
+    t.boolean  "Activo"
+    t.integer  "Cod_Asignacion"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "planta", force: :cascade do |t|
     t.serial   "Id",         null: false
     t.string   "Nombre"
@@ -107,15 +137,14 @@ ActiveRecord::Schema.define(version: 20160921032154) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: true do |t|
     t.serial   "Id",         null: false
     t.string   "Nombre"
     t.string   "Apellidos"
     t.string   "Empresa"
     t.string   "Telefono"
-    t.string   "Correo"
-    t.string   "Nick"
-    t.string   "Password"
+    t.string   "email"
+    t.string   "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

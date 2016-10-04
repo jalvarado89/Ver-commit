@@ -9,8 +9,7 @@
       <th>Apellidos</th>
       <th>Empresa</th>
       <th>Telefono</th>
-      <th>Correo</th>
-      <th>Nick</th>
+      <th>Email</th>
       <th>Password</th>
       <th colspan="3"></th>
     </tr>
@@ -23,9 +22,8 @@
         <td><%= user.Apellidos %></td>
         <td><%= user.Empresa %></td>
         <td><%= user.Telefono %></td>
-        <td><%= user.Correo %></td>
-        <td><%= user.Nick %></td>
-        <td><%= user.Password %></td>
+        <td><%= user.email %></td>
+        <td><%= user.password_digest %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

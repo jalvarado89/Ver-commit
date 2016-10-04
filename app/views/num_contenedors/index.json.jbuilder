@@ -1,0 +1,1 @@
+json.array! @num_contenedors, partial: 'num_contenedors/num_contenedor', as: :num_contenedor

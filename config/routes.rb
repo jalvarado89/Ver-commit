@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  root 'default#index'
+  get '/signup/new',  to: 'users#new'
+  get 'veruser', to: 'users#index'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
+  resources :sessions
+  resources :num_contenedors
+  resources :asignations
   resources :cliente_navieras
   resources :navieras
   resources :planta
@@ -9,5 +18,4 @@ Rails.application.routes.draw do
   resources :trucks
   resources :drivers
   resources :users
-  root 'default#index'
 end

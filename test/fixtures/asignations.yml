@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Cod_Asignacion: 
+  Num_Semana: 1
+  Fecha_Colocacion: MyString
+  Hora_Colocacion: MyString
+  Activo: false
+  Cod_Empresa: 1
+  Cod_Predio_Retiro: 1
+  Cod_Predio_Entrega: 1
+  Cod_Planta: 1
+  Cod_Naviera: 1
+  Cod_Cliente: 1
+  Cod_Ruta: 1
+
+two:
+  Cod_Asignacion: 
+  Num_Semana: 1
+  Fecha_Colocacion: MyString
+  Hora_Colocacion: MyString
+  Activo: false
+  Cod_Empresa: 1
+  Cod_Predio_Retiro: 1
+  Cod_Predio_Entrega: 1
+  Cod_Planta: 1
+  Cod_Naviera: 1
+  Cod_Cliente: 1
+  Cod_Ruta: 1

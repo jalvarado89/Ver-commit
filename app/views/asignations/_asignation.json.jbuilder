@@ -1,0 +1,2 @@
+json.extract! asignation, :id, :Cod_Asignacion, :Num_Semana, :Fecha_Colocacion, :Hora_Colocacion, :Activo, :Cod_Empresa, :Cod_Predio_Retiro, :Cod_Predio_Entrega, :Cod_Planta, :Cod_Naviera, :Cod_Cliente, :Cod_Ruta, :created_at, :updated_at
+json.url asignation_url(asignation, format: :json)
