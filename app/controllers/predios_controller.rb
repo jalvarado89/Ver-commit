@@ -1,4 +1,5 @@
 class PrediosController < ApplicationController
+  layout 'layout'
   before_action :set_predio, only: [:show, :edit, :update, :destroy]
 
   # GET /predios

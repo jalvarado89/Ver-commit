@@ -1,4 +1,5 @@
 class DriversController < ApplicationController
+  layout 'layout'
   before_action :set_driver, only: [:show, :edit, :update, :destroy]
 
   # GET /drivers

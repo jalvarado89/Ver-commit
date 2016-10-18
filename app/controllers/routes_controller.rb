@@ -1,4 +1,5 @@
 class RoutesController < ApplicationController
+  layout 'layout'
   before_action :set_route, only: [:show, :edit, :update, :destroy]
 
   # GET /routes

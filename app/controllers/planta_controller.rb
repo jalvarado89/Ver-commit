@@ -1,4 +1,5 @@
 class PlantaController < ApplicationController
+  layout 'layout'
   before_action :set_plantum, only: [:show, :edit, :update, :destroy]
 
   # GET /planta

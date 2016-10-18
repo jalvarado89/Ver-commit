@@ -1,4 +1,5 @@
 class ClienteNavierasController < ApplicationController
+  layout 'layout'
   before_action :set_cliente_naviera, only: [:show, :edit, :update, :destroy]
 
   # GET /cliente_navieras
@@ -10,6 +11,7 @@ class ClienteNavierasController < ApplicationController
   # GET /cliente_navieras/1
   # GET /cliente_navieras/1.json
   def show
+    @cliente_naviera = ClienteNaviera.find(params[:Id])
   end
 
   # GET /cliente_navieras/new
@@ -19,6 +21,7 @@ class ClienteNavierasController < ApplicationController
 
   # GET /cliente_navieras/1/edit
   def edit
+    @cliente_naviera = ClienteNaviera.find params[:Id]
   end
 
   # POST /cliente_navieras

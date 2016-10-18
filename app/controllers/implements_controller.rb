@@ -1,4 +1,5 @@
 class ImplementsController < ApplicationController
+  layout 'layout'
   before_action :set_implement, only: [:show, :edit, :update, :destroy]
 
   # GET /implements
