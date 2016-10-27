@@ -72,6 +72,6 @@ class ClienteNavierasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cliente_naviera_params
-      params.require(:cliente_naviera).permit(:Id, :Nombre, :Telefono, :Correo, :Id_Naviera)
+      params.require(:cliente_naviera).permit(:Nombre, :Telefono, :Correo, :Id_Naviera)
     end
 end

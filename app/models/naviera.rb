@@ -1,4 +1,3 @@
 class Naviera < ApplicationRecord
-	has_many :Companies
-	belongs_to :Cliente_Naviera
+	has_many :Companies	
 end

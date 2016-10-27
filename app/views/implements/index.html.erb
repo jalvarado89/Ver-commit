@@ -1,31 +1,36 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >    
+        <div class="panel-heading">
+          <div class="span5">
+              <table class="table table-striped table-condensed">
+                <thead>
+                  <tr>      
+                    <th>N° Chasis</th>
+                    <th>N° Placa</th>
+                    <th>Empresa</th>
+                    <th>camion</th>
+                    <th colspan="3"></th>
+                  </tr>
+                </thead>
 
-<h1>Implementos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Num chasis</th>
-      <th>Num placa</th>
-      <th>Empresa</th>
-      <th>Id camion</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @implements.each do |implement| %>
-      <tr>
-        <td><%= implement.Id %></td>
-        <td><%= implement.Num_Chasis %></td>
-        <td><%= implement.Num_Placa %></td>
-        <td><%= implement.Empresa %></td>
-        <td><%= implement.Id_Camion %></td>
-        <td><%= link_to 'Show', implement %></td>
-        <td><%= link_to 'Edit', edit_implement_path(implement) %></td>
-        <td><%= link_to 'Destroy', implement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                <tbody>
+                  <% @implements.each do |implement| %>
+                    <tr>
+                      <td><%= implement.Num_Chasis %></td>
+                      <td><%= implement.Num_Placa %></td>
+                      <td><%= implement.Empresa %></td>
+                      <td><%= implement.Id_Camion %></td>
+                      <td><%= link_to 'Show', implement %></td>
+                      <td><%= link_to 'Edit', edit_implement_path(implement) %></td>
+                      <td><%= link_to 'Destroy', implement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

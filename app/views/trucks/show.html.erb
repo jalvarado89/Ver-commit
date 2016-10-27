@@ -1,29 +1,43 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Id:</strong>
-  <%= @truck.Id %>
-</p>
-
-<p>
-  <strong>Placa:</strong>
-  <%= @truck.Placa %>
-</p>
-
-<p>
-  <strong>Modelo:</strong>
-  <%= @truck.Modelo %>
-</p>
-
-<p>
-  <strong>Marca:</strong>
-  <%= @truck.Marca %>
-</p>
-
-<p>
-  <strong>Driver id:</strong>
-  <%= @truck.Driver_Id %>
-</p>
-
-<%= link_to 'Edit', edit_truck_path(@truck) %> |
-<%= link_to 'Back', trucks_path %>
+<br>
+<div class="container">
+    <div class="row">      
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title">Camion</h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 " align="center">                     
+                    </div>                
+                      <div class=" col-md-9 col-lg-9 "> 
+                        <table class="table table-user-information">
+                          <tbody>
+                            <tr>
+                              <td>Numero de Placa:</td>
+                              <td><%= @truck.Placa %></td>
+                            </tr>                      
+                            <tr>
+                              <td>Modelo:</td>
+                              <td><%= @truck.Modelo %></td>
+                            </tr>
+                            <tr>
+                              <td>Marca:</td>
+                              <td><%= @truck.Marca %></td>
+                            </tr>
+                            <tr>
+                              <td>Chofer:</td>
+                              <td><%= @truck.Driver_Id %></td>
+                            </tr>
+                          </tbody>
+                        </table>                    
+                        <a href="<%= edit_truck_path(@truck) %>" class="btn btn-primary">Editar</a>
+                        <a href="<%= trucks_path %>" class="btn btn-primary">Atras</a>
+                      </div>                  
+                </div>                             
+            </div>
+          </div>
+      </div>
+  </div>
+</div>

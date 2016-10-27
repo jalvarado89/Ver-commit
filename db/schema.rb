@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20160921052026) do
   end
 
   create_table "cliente_navieras", force: :cascade do |t|
-    t.serial   "Id",         null: false
+    t.serial   "cliente_id", null: false
     t.string   "Nombre"
     t.string   "Telefono"
     t.string   "Correo"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20160921052026) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.serial   "Id",         null: false
+    t.serial   "empresa_id", null: false
     t.string   "Nombre"
     t.string   "Telefono"
     t.string   "Correo"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20160921052026) do
   end
 
   create_table "drivers", force: :cascade do |t|
-    t.serial   "Id",         null: false
+    t.serial   "driver_id",  null: false
     t.string   "Nombre"
     t.string   "Cedula"
     t.string   "Telefono"
@@ -62,17 +62,17 @@ ActiveRecord::Schema.define(version: 20160921052026) do
   end
 
   create_table "implements", force: :cascade do |t|
-    t.serial   "Id",         null: false
+    t.serial   "implemento_id", null: false
     t.string   "Num_Chasis"
     t.string   "Num_Placa"
     t.string   "Empresa"
     t.string   "Id_Camion"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "navieras", force: :cascade do |t|
-    t.serial   "Id",         null: false
+    t.serial   "naviera_id", null: false
     t.string   "Nombre"
     t.string   "Telefono"
     t.string   "Correo"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20160921052026) do
   end
 
   create_table "num_contenedors", force: :cascade do |t|
-    t.serial   "Id",             null: false
+    t.serial   "contenedores_id", null: false
     t.string   "Sigla"
     t.string   "Numero"
     t.string   "Marchamo"
@@ -91,12 +91,12 @@ ActiveRecord::Schema.define(version: 20160921052026) do
     t.integer  "Cant_Ejes"
     t.boolean  "Activo"
     t.integer  "Cod_Asignacion"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "planta", force: :cascade do |t|
-    t.serial   "Id",         null: false
+    t.serial   "planta_id",  null: false
     t.string   "Nombre"
     t.string   "Telefono"
     t.string   "Correo"
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 20160921052026) do
   end
 
   create_table "predios", force: :cascade do |t|
-    t.serial   "Id",         null: false
+    t.serial   "predio_id",  null: false
     t.string   "Nombre"
     t.string   "Telefono"
     t.string   "Correo"
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20160921052026) do
   end
 
   create_table "routes", force: :cascade do |t|
-    t.serial   "Id",             null: false
+    t.serial   "route_id",       null: false
     t.string   "Nombre"
     t.integer  "Precio_Empresa"
     t.integer  "Precio_Chofer"
@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(version: 20160921052026) do
   end
 
   create_table "trucks", force: :cascade do |t|
-    t.serial   "Id",         null: false
+    t.serial   "truck_id",   null: false
     t.string   "Placa"
     t.string   "Modelo"
     t.string   "Marca"
@@ -137,16 +137,15 @@ ActiveRecord::Schema.define(version: 20160921052026) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: true do |t|
-    t.serial   "Id",         null: false
+  create_table "users", force: :cascade do |t|
     t.string   "Nombre"
     t.string   "Apellidos"
     t.string   "Empresa"
     t.string   "Telefono"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

@@ -1,34 +1,47 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Id:</strong>
-  <%= @predio.Id %>
-</p>
-
-<p>
-  <strong>Nombre:</strong>
-  <%= @predio.Nombre %>
-</p>
-
-<p>
-  <strong>Telefono:</strong>
-  <%= @predio.Telefono %>
-</p>
-
-<p>
-  <strong>Correo:</strong>
-  <%= @predio.Correo %>
-</p>
-
-<p>
-  <strong>Direccion:</strong>
-  <%= @predio.Direccion %>
-</p>
-
-<p>
-  <strong>Id empresa:</strong>
-  <%= @predio.Id_Empresa %>
-</p>
-
-<%= link_to 'Edit', edit_predio_path(@predio) %> |
-<%= link_to 'Back', predios_path %>
+<br>
+<div class="container">
+    <div class="row">      
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title">Predio</h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 " align="center">                     
+                    </div>                
+                      <div class=" col-md-9 col-lg-9 "> 
+                        <table class="table table-user-information">
+                          <tbody>
+                            <tr>
+                              <td>Nombre:</td>
+                              <td><%= @predio.Nombre %></td>
+                            </tr>                      
+                            <tr>
+                              <td>Telefono:</td>
+                              <td><%= @predio.Telefono %></td>
+                            </tr>
+                            <tr>
+                              <td>Correo:</td>
+                              <td><%= @predio.Correo %></td>
+                            </tr>
+                            <tr>
+                              <td>Direccion:</td>
+                              <td><%= @predio.Direccion %></td>
+                            </tr>
+                            <tr>
+                              <td>Empresa:</td>
+                              <td><%= @predio.Id_Empresa %></td>
+                            </tr>
+                          </tbody>
+                        </table>                    
+                        <a href="<%= edit_predio_path(@predio) %>" class="btn btn-primary">Editar</a>
+                        <a href="<%= predios_path %>" class="btn btn-primary">Atras</a>
+                      </div>                  
+                </div>                             
+            </div>
+          </div>
+      </div>
+  </div>
+</div>

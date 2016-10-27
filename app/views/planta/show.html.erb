@@ -1,34 +1,47 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Id:</strong>
-  <%= @plantum.Id %>
-</p>
-
-<p>
-  <strong>Nombre:</strong>
-  <%= @plantum.Nombre %>
-</p>
-
-<p>
-  <strong>Telefono:</strong>
-  <%= @plantum.Telefono %>
-</p>
-
-<p>
-  <strong>Correo:</strong>
-  <%= @plantum.Correo %>
-</p>
-
-<p>
-  <strong>Direccion:</strong>
-  <%= @plantum.Direccion %>
-</p>
-
-<p>
-  <strong>Id empresa:</strong>
-  <%= @plantum.Id_Empresa %>
-</p>
-
-<%= link_to 'Edit', edit_plantum_path(@plantum) %> |
-<%= link_to 'Back', planta_path %>
+<br>
+<div class="container">
+    <div class="row">      
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title">Planta</h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 " align="center">                     
+                    </div>                
+                      <div class=" col-md-9 col-lg-9 "> 
+                        <table class="table table-user-information">
+                          <tbody>
+                            <tr>
+                              <td>Nombre:</td>
+                              <td><%= @plantum.Nombre %></td>
+                            </tr>                      
+                            <tr>
+                              <td>Telefono:</td>
+                              <td><%= @plantum.Telefono %></td>
+                            </tr>
+                            <tr>
+                              <td>Correo:</td>
+                              <td><%= @plantum.Correo %></td>
+                            </tr>
+                            <tr>
+                              <td>Direccion:</td>
+                              <td><%= @plantum.Direccion %></td>
+                            </tr>
+                            <tr>
+                              <td>Empresa:</td>
+                              <td><%= @plantum.Id_Empresa %></td>
+                            </tr>
+                          </tbody>
+                        </table>                    
+                        <a href="<%= edit_plantum_path(@plantum) %>" class="btn btn-primary">Editar</a>
+                        <a href="<%= planta_path %>" class="btn btn-primary">Atras</a>
+                      </div>                  
+                </div>                             
+            </div>
+          </div>
+      </div>
+  </div>
+</div>

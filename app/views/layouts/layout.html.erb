@@ -21,32 +21,32 @@
               <li><a href="/">Home</a></li>                          
 
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mantenimientos<span class="caret"></span></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mantenimientos<span class="caret"></span></a>
                 
                 <ul class="dropdown-menu" role="menu">
 
                   <li class="dropdown dropdown-submenu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Camiones</a>
+                    <a class="dropdown-toggle" data-toggle="dropdown">Camiones</a>
                      <ul class="dropdown-menu">
-                      <li class="kopie"><a href="trucks/new">Crear</a></li>
-                      <li><a href="trucks">Mostrar</a></li>                      
+                      <li class="kopie"><a href="/trucks/new">Crear</a></li>
+                      <li><a href="<%= trucks_path %>">Mostrar</a></li>                      
                     </ul>
                   </li>
 
                   <li class="dropdown dropdown-submenu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Choferes</a>
+                    <a class="dropdown-toggle" data-toggle="dropdown">Choferes</a>
                     <ul class="dropdown-menu">
-                      <li class="kopie"><a href="drivers/new">Crear</a></li>
-                      <li><a href="drivers">Mostrar</a></li>
+                      <li class="kopie"><a href="/drivers/new">Crear</a></li>
+                      <li><a href="<%= drivers_path %>">Mostrar</a></li>
                     </ul>
                   </li>
 
 
                   <li class="dropdown dropdown-submenu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Implementos</a>
+                    <a class="dropdown-toggle" data-toggle="dropdown">Implementos</a>
                     <ul class="dropdown-menu">
-                      <li class="kopie"><a href="implements/new">Crear</a></li>
-                      <li><a href="implements">Mostrar</a></li>
+                      <li class="kopie"><a href="/implements/new">Crear</a></li>
+                      <li><a href="<%= implements_path %>">Mostrar</a></li>
                     </ul>
                   </li>
 
@@ -54,34 +54,34 @@
                   <!--  <li class="dropdown-header">Nav header</li>  -->
 
                   <li class="dropdown dropdown-submenu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Clientes</a>
+                    <a class="dropdown-toggle" data-toggle="dropdown">Clientes</a>
                     <ul class="dropdown-menu">
-                      <li class="kopie"><a href="companies/new">Crear</a></li>
-                      <li><a href="companies">Mostrar</a></li>
+                      <li class="kopie"><a href="/companies/new">Crear</a></li>
+                      <li><a href="<%= companies_path %>">Mostrar</a></li>
                     </ul>
                   </li>
 
                   <li class="dropdown dropdown-submenu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Plantas</a>
+                    <a class="dropdown-toggle" data-toggle="dropdown">Plantas</a>
                     <ul class="dropdown-menu">
-                      <li class="kopie"><a href="planta/new">Crear</a></li>
-                      <li><a href="planta">Mostrar</a></li>
+                      <li class="kopie"><a href="/planta/new">Crear</a></li>
+                      <li><a href="<%= planta_path %>">Mostrar</a></li>
                     </ul>
                   </li>
 
                   <li class="dropdown dropdown-submenu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Predios</a>
+                    <a class="dropdown-toggle" data-toggle="dropdown">Predios</a>
                     <ul class="dropdown-menu">
-                      <li class="kopie"><a href="predios/new">Crear</a></li>
-                      <li><a href="predios">Mostrar</a></li>
+                      <li class="kopie"><a href="/predios/new">Crear</a></li>
+                      <li><a href="<%= predios_path %>">Mostrar</a></li>
                     </ul>
                   </li>
 
                   <li class="dropdown dropdown-submenu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navieras</a>
+                    <a class="dropdown-toggle" data-toggle="dropdown">Navieras</a>
                     <ul class="dropdown-menu">
-                      <li class="kopie"><a href="navieras/new">Crear</a></li>
-                      <li><a href="navieras">Mostrar</a></li>
+                      <li class="kopie"><a href="/navieras/new">Crear</a></li>
+                      <li><a href="<%= navieras_path %>">Mostrar</a></li>
                     </ul>
                   </li>
 
@@ -92,7 +92,7 @@
                 <li><a <%= link_to "Log Out", logout_path %> </a></li> 
                 <li><a> User: <%= current_user.Nombre %> </a></li> 
               <% else %>
-                <li><a <%= link_to "Sign Up", signup_new_path %> </a></li> 
+                <li><a <%= link_to "Sign Up", new_user_path %> </a></li> 
                 <li><a <%= link_to "Log In", login_path %> </a></li> 
               <% end %>
             </ul>

@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id 
       redirect_to '/'
     else 
-      redirect_to '/signup' 
+      redirect_to signup_new_path 
     end 
   end
 
@@ -66,6 +66,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:Nombre, :Apellidos, :Empresa, :Telefono, :Correo, :Nick, :password_digest)
+      params.require(:user).permit(:Nombre, :Apellidos, :Empresa, :Telefono, :Correo, :password_digest)
     end
 end

@@ -69,6 +69,6 @@ class NumContenedorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def num_contenedor_params
-      params.require(:num_contenedor).permit(:Id, :Sigla, :Numero, :Marchamo, :Temperatura, :Cant_Ejes, :Activo, :Cod_Asignacion)
+      params.require(:num_contenedor).permit(:Sigla, :Numero, :Marchamo, :Temperatura, :Cant_Ejes, :Activo, :Cod_Asignacion)
     end
 end

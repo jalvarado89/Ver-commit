@@ -1,24 +1,41 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Id:</strong>
-  <%= @driver.Id %>
-</p>
-
-<p>
-  <strong>Nombre:</strong>
-  <%= @driver.Nombre %>
-</p>
-
-<p>
-  <strong>Cedula:</strong>
-  <%= @driver.Cedula %>
-</p>
-
-<p>
-  <strong>Telefono:</strong>
-  <%= @driver.Telefono %>
-</p>
-
-<%= link_to 'Edit', edit_driver_path(@driver) %> |
-<%= link_to 'Back', drivers_path %>
+<br>
+<div class="container">
+      <div class="row">      
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Chofer</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"></div>
+                
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Nombre:</td>
+                        <td><%= @driver.Nombre %></td>
+                      </tr>
+                      <tr>
+                        <td>Cedula:</td>
+                        <td><%= @driver.Cedula %></td>
+                      </tr>
+                      <tr>
+                        <td>Telefono:</td>
+                        <td><%= @driver.Telefono %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  
+                  <a href="<%= edit_driver_path(@driver) %>" class="btn btn-primary">Editar</a>
+                  <a href="<%= drivers_path %>" class="btn btn-primary">Atras</a>
+                </div>
+              </div>
+            </div>                 
+            
+          </div>
+        </div>
+      </div>
+    </div>

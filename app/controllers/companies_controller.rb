@@ -29,7 +29,7 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
-        format.html { redirect_to @company, notice: 'Company was successfully created.' }
+        format.html { redirect_to @company, notice: 'La Empresa fue Creado Exitosamente.' }
         format.json { render :show, status: :created, location: @company }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class CompaniesController < ApplicationController
   def update
     respond_to do |format|
       if @company.update(company_params)
-        format.html { redirect_to @company, notice: 'Company was successfully updated.' }
+        format.html { redirect_to @company, notice: 'La Empresa fue Actualizado Exitosamente.' }
         format.json { render :show, status: :ok, location: @company }
       else
         format.html { render :edit }
@@ -70,6 +70,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:Id, :Nombre, :Telefono, :Correo, :Direccion)
+      params.require(:company).permit(:Nombre, :Telefono, :Correo, :Direccion)
     end
 end

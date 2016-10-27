@@ -1,6 +1,6 @@
 class TrucksController < ApplicationController
   layout 'layout'
-  before_action :set_truck,:require_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_truck, only: [:show, :edit, :update, :destroy]
 
   # GET /trucks
   # GET /trucks.json
@@ -70,6 +70,6 @@ class TrucksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def truck_params
-      params.require(:truck).permit(:Id, :Placa, :Modelo, :Marca, :Driver_Id)
+      params.require(:truck).permit(:Placa, :Modelo, :Marca, :Driver_Id)
     end
 end
