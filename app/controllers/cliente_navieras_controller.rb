@@ -10,18 +10,17 @@ class ClienteNavierasController < ApplicationController
 
   # GET /cliente_navieras/1
   # GET /cliente_navieras/1.json
-  def show
-    @cliente_naviera = ClienteNaviera.find(params[:Id])
+  def show    
   end
 
   # GET /cliente_navieras/new
   def new
     @cliente_naviera = ClienteNaviera.new
+    @naviera = Naviera.all
   end
 
   # GET /cliente_navieras/1/edit
-  def edit
-    @cliente_naviera = ClienteNaviera.find params[:Id]
+  def edit    
   end
 
   # POST /cliente_navieras
@@ -71,7 +70,7 @@ class ClienteNavierasController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def cliente_naviera_params
-      params.require(:cliente_naviera).permit(:Nombre, :Telefono, :Correo, :Id_Naviera)
+    def cliente_naviera_params      
+      params.require(:cliente_naviera).permit(:Nombre, :Telefono, :Correo, :navieras_id)
     end
 end

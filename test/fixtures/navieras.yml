@@ -1,17 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  Id: 
+  Company: one
   Nombre: MyString
   Telefono: MyString
   Correo: MyString
   Direccion: MyString
-  Id_Empresa: 1
 
 two:
-  Id: 
+  Company: two
   Nombre: MyString
   Telefono: MyString
   Correo: MyString
   Direccion: MyString
-  Id_Empresa: 1

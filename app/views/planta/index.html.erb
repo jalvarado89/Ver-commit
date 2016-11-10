@@ -23,7 +23,7 @@
                       <td><%= plantum.Telefono %></td>
                       <td><%= plantum.Correo %></td>
                       <td><%= plantum.Direccion %></td>
-                      <td><%= plantum.Id_Empresa %></td>
+                      <td><%= Company.find(plantum.companies_id).Nombre %></td>
                       <td><%= link_to 'Show', plantum %></td>
                       <td><%= link_to 'Edit', edit_plantum_path(plantum) %></td>
                       <td><%= link_to 'Destroy', plantum, method: :delete, data: { confirm: 'Are you sure?' } %></td>

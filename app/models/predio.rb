@@ -1,3 +1,3 @@
-class Predio < ApplicationRecord
-	has_many :Companies
+class Predio < ActiveRecord::Base
+	belongs_to :Company, optional: true
 end

@@ -25,7 +25,7 @@
 								          	<%= f.text_field :Direccion, class: "form-control", placeholder: "Direccion", :required => true %>
 								        </div>
 								        <div class="form-group">
-								          	<%= f.text_field :Id_Empresa, class: "form-control", placeholder: "Id_Empresa", :required => true %>
+								        <%= f.collection_select(:companies_id, Company.all, :id, :Nombre, prompt: true) %>
 								        </div>
 							    	<%= f.submit "Submit", class: "btn btn-primary pull-right" %>
 						        <% end %>

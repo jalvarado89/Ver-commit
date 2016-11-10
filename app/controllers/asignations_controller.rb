@@ -69,6 +69,6 @@ class AsignationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def asignation_params
-      params.require(:asignation).permit(:Cod_Asignacion, :Num_Semana, :Fecha_Colocacion, :Hora_Colocacion, :Activo, :Cod_Empresa, :Cod_Predio_Retiro, :Cod_Predio_Entrega, :Cod_Planta, :Cod_Naviera, :Cod_Cliente, :Cod_Ruta)
+      params.require(:asignation).permit(:Cod_Asignacion, :Num_Semana, :Fecha_Colocacion, :Hora_Colocacion, :Activo, :companies_id, :predios_id, :predios_id2, :plantum_id, :navieras_id, :cliente_navieras_id, :routes_id)
     end
 end

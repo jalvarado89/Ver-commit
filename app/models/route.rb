@@ -1,3 +1,3 @@
-class Route < ApplicationRecord
-	has_many :Companies
+class Route < ActiveRecord::Base
+	belongs_to :Company, optional: true
 end

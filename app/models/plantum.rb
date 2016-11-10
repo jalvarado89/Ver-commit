@@ -1,3 +1,3 @@
-class Plantum < ApplicationRecord
-	has_many :Companies
+class Plantum < ActiveRecord::Base
+	belongs_to :Companies, optional: true
 end

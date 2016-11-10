@@ -32,7 +32,7 @@
                             </tr>
                             <tr>
                               <td>Empresa:</td>
-                              <td><%= @predio.Id_Empresa %></td>
+                              <td><%= Company.find(@predio.companies_id).Nombre %></td>
                             </tr>
                           </tbody>
                         </table>                    

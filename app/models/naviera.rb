@@ -1,3 +1,3 @@
-class Naviera < ApplicationRecord
-	has_many :Companies	
+class Naviera < ActiveRecord::Base
+  belongs_to :company, optional: true
 end

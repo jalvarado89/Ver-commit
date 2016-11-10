@@ -22,7 +22,7 @@
 							          	<%= f.text_field :Empresa, class: "form-control", placeholder: "Empresa", :required => true %>
 							        </div>								    
 							        <div class="form-group">
-							          	<%= f.text_field :Id_Camion, class: "form-control", placeholder: "Camion", :required => true %>
+							        	<%= f.select :trucks_id, options_from_collection_for_select(Truck.all, :id, :Placa, @implement.trucks_id) %>							          	
 							        </div>		          
 								    <%= f.submit "Submit", class: "btn btn-primary pull-right" %>
 							        <% end %>

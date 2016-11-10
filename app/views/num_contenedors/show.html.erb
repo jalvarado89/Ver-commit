@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Id:</strong>
-  <%= @num_contenedor.Id %>
-</p>
-
-<p>
   <strong>Sigla:</strong>
   <%= @num_contenedor.Sigla %>
 </p>
@@ -37,7 +32,7 @@
 
 <p>
   <strong>Cod asignacion:</strong>
-  <%= @num_contenedor.Cod_Asignacion %>
+  <%= @num_contenedor.asignations_id %>
 </p>
 
 <%= link_to 'Edit', edit_num_contenedor_path(@num_contenedor) %> |

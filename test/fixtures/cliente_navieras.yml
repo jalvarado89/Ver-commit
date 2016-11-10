@@ -1,15 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  Id: 
   Nombre: MyString
   Telefono: MyString
   Correo: MyString
-  Id_Naviera: 1
+  Naviera_id: 1
+  references: MyString
+  Naviera: MyString
 
 two:
-  Id: 
   Nombre: MyString
   Telefono: MyString
   Correo: MyString
-  Id_Naviera: 1
+  Naviera_id: 1
+  references: MyString
+  Naviera: MyString

@@ -1,2 +1,2 @@
-json.extract! plantum, :id, :planta_id, :Nombre, :Telefono, :Correo, :Direccion, :Id_Empresa, :created_at, :updated_at
+json.extract! plantum, :id, :Nombre, :Telefono, :Correo, :Direccion, :companies_id, :created_at, :updated_at
 json.url plantum_url(plantum, format: :json)

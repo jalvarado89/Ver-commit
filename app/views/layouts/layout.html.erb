@@ -6,8 +6,8 @@
     <meta name="viewport" content="width-device-width, initial-scale-1.0">
     <link rel="icon" type="image/png" href="<%= asset_path 'Trans_Juanva16x16.ico' %>" />
 
-    <%= stylesheet_link_tag 'boostrap.min.scss' %>
-    <%= stylesheet_link_tag 'boostrap-responsive.min.scss'%>    
+    <%= stylesheet_link_tag 'bootstrap.min' %>
+    <%= stylesheet_link_tag 'bootstrap-responsive.min'%>    
     <%= stylesheet_link_tag 'application', media: 'all' %> 
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -82,6 +82,14 @@
                     <ul class="dropdown-menu">
                       <li class="kopie"><a href="/navieras/new">Crear</a></li>
                       <li><a href="<%= navieras_path %>">Mostrar</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="dropdown dropdown-submenu">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Clientes</a>
+                    <ul class="dropdown-menu">
+                      <li class="kopie"><a href="<%= new_cliente_naviera_path %>">Crear</a></li>
+                      <li><a href="<%= cliente_navieras_path %>">Mostrar</a></li>
                     </ul>
                   </li>
 

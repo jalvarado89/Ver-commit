@@ -70,6 +70,6 @@ class PrediosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def predio_params
-      params.require(:predio).permit(:Nombre, :Telefono, :Correo, :Direccion, :Id_Empresa)
+      params.require(:predio).permit(:Nombre, :Telefono, :Correo, :Direccion, :companies_id)
     end
 end

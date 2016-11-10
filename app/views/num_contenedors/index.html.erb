@@ -4,8 +4,7 @@
 
 <table>
   <thead>
-    <tr>
-      <th>Id</th>
+    <tr>      
       <th>Sigla</th>
       <th>Numero</th>
       <th>Marchamo</th>
@@ -19,15 +18,14 @@
 
   <tbody>
     <% @num_contenedors.each do |num_contenedor| %>
-      <tr>
-        <td><%= num_contenedor.Id %></td>
+      <tr>        
         <td><%= num_contenedor.Sigla %></td>
         <td><%= num_contenedor.Numero %></td>
         <td><%= num_contenedor.Marchamo %></td>
         <td><%= num_contenedor.Temperatura %></td>
         <td><%= num_contenedor.Cant_Ejes %></td>
         <td><%= num_contenedor.Activo %></td>
-        <td><%= num_contenedor.Cod_Asignacion %></td>
+        <td><%= num_contenedor.asignations_id %></td>
         <td><%= link_to 'Show', num_contenedor %></td>
         <td><%= link_to 'Edit', edit_num_contenedor_path(num_contenedor) %></td>
         <td><%= link_to 'Destroy', num_contenedor, method: :delete, data: { confirm: 'Are you sure?' } %></td>

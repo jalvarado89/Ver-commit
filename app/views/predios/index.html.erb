@@ -23,7 +23,7 @@
                       <td><%= predio.Telefono %></td>
                       <td><%= predio.Correo %></td>
                       <td><%= predio.Direccion %></td>
-                      <td><%= predio.Id_Empresa %></td>
+                      <td><%= Company.find(predio.companies_id).Nombre %></td>
                       <td><%= link_to 'Show', predio %></td>
                       <td><%= link_to 'Edit', edit_predio_path(predio) %></td>
                       <td><%= link_to 'Destroy', predio, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,3 +1,3 @@
-class ClienteNaviera < ApplicationRecord
-	has_many :Navieras
+class ClienteNaviera < ActiveRecord::Base
+	belongs_to :Naviera, optional: true
 end

@@ -5,7 +5,7 @@ class NavierasController < ApplicationController
   # GET /navieras
   # GET /navieras.json
   def index
-    @navieras = Naviera.all
+    @navieras = Naviera.all    
   end
 
   # GET /navieras/1
@@ -14,7 +14,7 @@ class NavierasController < ApplicationController
   end
 
   # GET /navieras/new
-  def new
+  def new    
     @naviera = Naviera.new
   end
 
@@ -24,9 +24,9 @@ class NavierasController < ApplicationController
 
   # POST /navieras
   # POST /navieras.json
-  def create
+  def create    
     @naviera = Naviera.new(naviera_params)
-
+    
     respond_to do |format|
       if @naviera.save
         format.html { redirect_to @naviera, notice: 'Naviera was successfully created.' }
@@ -70,6 +70,6 @@ class NavierasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def naviera_params
-      params.require(:naviera).permit(:Nombre, :Telefono, :Correo, :Direccion, :Id_Empresa)
+      params.require(:naviera).permit(:Nombre, :Telefono, :Correo, :Direccion, :companies_id)      
     end
 end

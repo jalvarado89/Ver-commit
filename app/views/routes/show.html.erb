@@ -1,29 +1,43 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Id:</strong>
-  <%= @route.Id %>
-</p>
-
-<p>
-  <strong>Nombre:</strong>
-  <%= @route.Nombre %>
-</p>
-
-<p>
-  <strong>Precio empresa:</strong>
-  <%= @route.Precio_Empresa %>
-</p>
-
-<p>
-  <strong>Precio chofer:</strong>
-  <%= @route.Precio_Chofer %>
-</p>
-
-<p>
-  <strong>Id empresa:</strong>
-  <%= @route.Id_Empresa %>
-</p>
-
-<%= link_to 'Edit', edit_route_path(@route) %> |
-<%= link_to 'Back', routes_path %>
+<br>
+<div class="container">
+    <div class="row">      
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title">Predio</h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 " align="center">                     
+                    </div>                
+                      <div class=" col-md-9 col-lg-9 "> 
+                        <table class="table table-user-information">
+                          <tbody>
+                            <tr>
+                              <td>Nombre:</td>
+                              <td><%= @route.Nombre %></td>
+                            </tr>                      
+                            <tr>
+                              <td>Precio de Finca:</td>
+                              <td><%= @route.Precio_Empresa %></td>
+                            </tr>
+                            <tr>
+                              <td>Precio para Chofer:</td>
+                              <td><%= @route.Precio_Chofer %></td>
+                            </tr>
+                            <tr>
+                              <td>Empresa:</td>
+                              <td><%= Company.find(@route.companies_id).Nombre %></td>
+                            </tr>
+                          </tbody>
+                        </table>                    
+                        <a href="<%= edit_route_path(@route) %>" class="btn btn-primary">Editar</a>
+                        <a href="<%= routes_path %>" class="btn btn-primary">Atras</a>
+                      </div>                  
+                </div>                             
+            </div>
+          </div>
+      </div>
+  </div>
+</div>

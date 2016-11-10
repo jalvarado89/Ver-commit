@@ -28,7 +28,7 @@
                             </tr>
                             <tr>
                               <td>Chofer:</td>
-                              <td><%= @truck.Driver_Id %></td>
+                              <td><%= Driver.find(@truck.drivers_id).Nombre %></td>
                             </tr>
                           </tbody>
                         </table>                    

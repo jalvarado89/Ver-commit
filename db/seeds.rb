@@ -5,5 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Driver.create(Nombre: 'Jason', Cedula: '206560914', Telefono: '86546540')
-Driver.create(Nombre: 'Pizo', Cedula: '206560914', Telefono: '86546540')
+Company.create(Nombre: 'Cosiarma', Telefono: 'erhtrh', Correo: 'egreh', Direccion: 'rhwn')
+Naviera.create(Nombre: 'Cosiarma', Telefono: 'erhtrh', Correo: 'egreh', Direccion: 'rhwn', companies_id: Company.first.id)
+

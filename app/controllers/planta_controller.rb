@@ -70,6 +70,6 @@ class PlantaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plantum_params
-      params.require(:plantum).permit(:Nombre, :Telefono, :Correo, :Direccion, :Id_Empresa)
+      params.require(:plantum).permit(:Nombre, :Telefono, :Correo, :Direccion, :companies_id)
     end
 end

@@ -20,9 +20,9 @@
 									    </div>
 								        <div class="form-group">
 								          	<%= f.text_field :Marca, class: "form-control", placeholder: "Marca", :required => true %>
-								        </div>								    
+								        </div>
 								        <div class="form-group">
-								          	<%= f.text_field :Driver_Id, class: "form-control", placeholder: "Chofer", :required => true %>
+								          	<%= f.collection_select(:drivers_id, Driver.all, :id, :Nombre, prompt: true) %>
 								        </div>
 							    	<%= f.submit "Submit", class: "btn btn-primary pull-right" %>
 						        <% end %>
