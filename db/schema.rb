@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20161109143814) do
     t.index ["predios_id"], name: "index_asignations_on_predios_id", using: :btree
     t.index ["routes_id"], name: "index_asignations_on_routes_id", using: :btree
   end
-
   create_table "cliente_navieras", force: :cascade do |t|
     t.string   "Nombre"
     t.string   "Telefono"
@@ -47,7 +46,6 @@ ActiveRecord::Schema.define(version: 20161109143814) do
     t.datetime "updated_at",  null: false
     t.index ["navieras_id"], name: "index_cliente_navieras_on_navieras_id", using: :btree
   end
-
   create_table "companies", force: :cascade do |t|
     t.string   "Nombre"
     t.string   "Telefono"
@@ -56,7 +54,6 @@ ActiveRecord::Schema.define(version: 20161109143814) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
   create_table "drivers", force: :cascade do |t|
     t.string   "Nombre"
     t.string   "Cedula"
@@ -64,7 +61,6 @@ ActiveRecord::Schema.define(version: 20161109143814) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
   create_table "implements", force: :cascade do |t|
     t.string   "Num_Chasis"
     t.string   "Num_Placa"
@@ -74,7 +70,6 @@ ActiveRecord::Schema.define(version: 20161109143814) do
     t.datetime "updated_at", null: false
     t.index ["trucks_id"], name: "index_implements_on_trucks_id", using: :btree
   end
-
   create_table "navieras", force: :cascade do |t|
     t.string   "Nombre"
     t.string   "Telefono"
@@ -85,8 +80,7 @@ ActiveRecord::Schema.define(version: 20161109143814) do
     t.datetime "updated_at",   null: false
     t.index ["companies_id"], name: "index_navieras_on_companies_id", using: :btree
   end
-
-  create_table "num_contenedors", force: :cascade do |t|
+  create_table "num_contenedors", force: :cascade do |t|    
     t.string   "Sigla"
     t.string   "Numero"
     t.string   "Marchamo"

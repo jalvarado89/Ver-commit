@@ -1,9 +1,17 @@
 class Asignation < ActiveRecord::Base
-	has_many :Num_Contenerors
-	belongs_to :Company, optional: true
-	belongs_to :Predio, optional: true
-	belongs_to :Planta, optional: true
-	belongs_to :Naviera, optional: true
-	belongs_to :Cliente_Naviera, optional: true
-	belongs_to :Route, optional: true
+	belongs_to :Num_Contenedor
+	has_many :Companies
+	has_many :Predios
+	has_many :Plantum
+	has_many :Navieras
+	has_many :Cliente_Navieras
+	has_many :Routes
+
+	validates_presence_of :companies_id, :on => :create
+	validates_presence_of :predios_id, :on => :create
+	validates_presence_of :predios_id2, :on => :create
+	validates_presence_of :plantum_id, :on => :create
+	validates_presence_of :navieras_id, :on => :create
+	validates_presence_of :cliente_navieras_id, :on => :create
+	validates_presence_of :routes_id, :on => :create	
 end

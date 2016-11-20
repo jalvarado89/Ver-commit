@@ -1,49 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Asignations</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Cod asignacion</th>
-      <th>Num semana</th>
-      <th>Fecha colocacion</th>
-      <th>Hora colocacion</th>
-      <th>Activo</th>
-      <th>Cod empresa</th>
-      <th>Cod predio retiro</th>
-      <th>Cod predio entrega</th>
-      <th>Cod planta</th>
-      <th>Cod naviera</th>
-      <th>Cod cliente</th>
-      <th>Cod ruta</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @asignations.each do |asignation| %>
-      <tr>
-        <td><%= asignation.Cod_Asignacion %></td>
-        <td><%= asignation.Num_Semana %></td>
-        <td><%= asignation.Fecha_Colocacion %></td>
-        <td><%= asignation.Hora_Colocacion %></td>
-        <td><%= asignation.Activo %></td>
-        <td><%= asignation.Cod_Empresa %></td>
-        <td><%= asignation.Cod_Predio_Retiro %></td>
-        <td><%= asignation.Cod_Predio_Entrega %></td>
-        <td><%= asignation.Cod_Planta %></td>
-        <td><%= asignation.Cod_Naviera %></td>
-        <td><%= asignation.Cod_Cliente %></td>
-        <td><%= asignation.Cod_Ruta %></td>
-        <td><%= link_to 'Show', asignation %></td>
-        <td><%= link_to 'Edit', edit_asignation_path(asignation) %></td>
-        <td><%= link_to 'Destroy', asignation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Asignation', new_asignation_path %>
+<div class="container">
+  <% @asignations.each do |asignation| %>
+  <div class="col-sm-12">
+    <div class="bs-calltoaction bs-calltoaction-info">
+      <div class="row">        
+        <div class="col-md-9 cta-contents">          
+          <h1 class="cta-title">Asignacion # <%= asignation.Cod_Asignacion %> </h1>
+          <div class="cta-desc">
+            <p>Num Semana: <%= asignation.Num_Semana %> </p>
+            <p>Fecha Colocacion: <%= asignation.Fecha_Colocacion %>  Hora Colocacion: <%= asignation.Hora_Colocacion%> </p>
+            <p>Estado: <%= asignation.Activo %>  Empresa: <%= Company.find(asignation.companies_id).Nombre %></p>           
+            <p>Predio Retiro: <%= Predio.find(asignation.predios_id).Nombre %>  Predio Entrega: <%= Predio.find(asignation.predios_id2).Nombre %></p>            
+            <p>Planta: <%= Plantum.find(asignation.plantum_id).Nombre %>  Ruta: <%= Route.find(asignation.routes_id).Nombre %></p>
+            <p>Naviera: <%= Naviera.find(asignation.navieras_id).Nombre %>  Cliente: <%= ClienteNaviera.find(asignation.cliente_navieras_id).Nombre %></p>            
+          </div>
+        </div>
+        <div class="col-md-3 cta-button">
+          <%=button_to "Eliminar", asignation, :method => :delete, :class => "btn btn-lg btn-block btn-default", :confirm => "You sure ?"%>
+          <a href="<%= edit_asignation_path(asignation) %>" class="btn btn-lg btn-block btn-default">Editar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

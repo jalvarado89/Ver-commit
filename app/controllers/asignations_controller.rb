@@ -1,10 +1,11 @@
 class AsignationsController < ApplicationController
+  layout 'layout'
   before_action :set_asignation, only: [:show, :edit, :update, :destroy]
 
   # GET /asignations
   # GET /asignations.json
   def index
-    @asignations = Asignation.all
+    @asignations = Asignation.where(Activo: true)
   end
 
   # GET /asignations/1
@@ -25,6 +26,8 @@ class AsignationsController < ApplicationController
   # POST /asignations.json
   def create
     @asignation = Asignation.new(asignation_params)
+    @asignation.Activo = true;
+    
 
     respond_to do |format|
       if @asignation.save
@@ -69,6 +72,6 @@ class AsignationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def asignation_params
-      params.require(:asignation).permit(:Cod_Asignacion, :Num_Semana, :Fecha_Colocacion, :Hora_Colocacion, :Activo, :companies_id, :predios_id, :predios_id2, :plantum_id, :navieras_id, :cliente_navieras_id, :routes_id)
+      params.require(:asignation).permit(:Num_Semana, :Fecha_Colocacion, :Hora_Colocacion, :Activo, :companies_id, :predios_id, :predios_id2, :plantum_id, :navieras_id, :cliente_navieras_id, :routes_id)
     end
 end

@@ -7,4 +7,3 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Company.create(Nombre: 'Cosiarma', Telefono: 'erhtrh', Correo: 'egreh', Direccion: 'rhwn')
 Naviera.create(Nombre: 'Cosiarma', Telefono: 'erhtrh', Correo: 'egreh', Direccion: 'rhwn', companies_id: Company.first.id)
-

@@ -23,10 +23,10 @@
 							        </div>
 							        <div class="form-group">
 							          	<%= f.text_field :Direccion, class: "form-control", placeholder: "Direccion", :required => true %>
-							        </div>							    
+							        </div>
 							        <div class="form-group">
-							        <%= f.select :companies_id, options_from_collection_for_select(Company.all, :id, :Nombre, @plantum.companies_id) %>							          	
-							        </div>		          
+							        <%= f.select :companies_id, options_from_collection_for_select(Company.all, :id, :Nombre, @plantum.companies_id) %>
+							        </div>
 								    <%= f.submit "Submit", class: "btn btn-primary pull-right" %>
 							        <% end %>
 							    </div>

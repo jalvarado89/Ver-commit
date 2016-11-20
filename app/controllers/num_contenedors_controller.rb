@@ -1,4 +1,5 @@
 class NumContenedorsController < ApplicationController
+  layout "layout"
   before_action :set_num_contenedor, only: [:show, :edit, :update, :destroy]
 
   # GET /num_contenedors
@@ -25,6 +26,8 @@ class NumContenedorsController < ApplicationController
   # POST /num_contenedors.json
   def create
     @num_contenedor = NumContenedor.new(num_contenedor_params)
+    @num_contenedor.Activo = true
+    @num_contenedor.asignations_id = 1
 
     respond_to do |format|
       if @num_contenedor.save

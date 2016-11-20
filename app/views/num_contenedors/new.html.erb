@@ -1,5 +1,43 @@
-<h1>New Num Contenedor</h1>
+<div class="container">
+	<%= form_for(@num_contenedor, url: new_num_contenedor_path) do |f| %>
+	<table id="myTable" class=" table order-list">
+		<thead>
+			<tr>
+				<td>Sigla</td>
+				<td>Numero</td>
+				<td>Marchamo</td>
+				<td>Temperatura</td>
+				<td>Cant. Ejes</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="col-sm-1">
+					<input type="text" name="Sigla" class="form-control" id="ancho"/>
+				</td>
+				<td class="col-sm-2">
+					<input type="text" name="Numero"  class="form-control" id="ancho"/>
+				</td>
+				<td class="col-sm-2">
+					<input type="text" name="Marchamo"  class="form-control" id="ancho"/>
+				</td>
+				<td class="col-sm-2">
+					<input type="text" name="Temperatura"  class="form-control" id="ancho"/>
+				</td>
+				<td class="col-sm-3">
+					<select name="Cant_Ejes" class="form-control">
+						<option>--Seleccione--</option>
+						<option> 2 Ejes </option>
+						<option> 3 Ejes </option>
+					</select>
+				</td>
+				<td colspan="5" style="text-align: left;">
+					<input type="summit" class="btn btn-lg btn-block " id="addrow" value="Summit" />
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<% end %>
+</div>
 
-<%= render 'form', num_contenedor: @num_contenedor %>
-
-<%= link_to 'Back', num_contenedors_path %>
+<%= javascript_include_tag "Asignacions/num_contenedor" %>

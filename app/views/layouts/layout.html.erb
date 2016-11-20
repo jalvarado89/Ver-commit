@@ -41,7 +41,6 @@
                     </ul>
                   </li>
 
-
                   <li class="dropdown dropdown-submenu">
                     <a class="dropdown-toggle" data-toggle="dropdown">Implementos</a>
                     <ul class="dropdown-menu">
@@ -54,7 +53,7 @@
                   <!--  <li class="dropdown-header">Nav header</li>  -->
 
                   <li class="dropdown dropdown-submenu">
-                    <a class="dropdown-toggle" data-toggle="dropdown">Clientes</a>
+                    <a class="dropdown-toggle" data-toggle="dropdown">Empresas</a>
                     <ul class="dropdown-menu">
                       <li class="kopie"><a href="/companies/new">Crear</a></li>
                       <li><a href="<%= companies_path %>">Mostrar</a></li>
@@ -93,8 +92,17 @@
                     </ul>
                   </li>
 
+                  <li class="dropdown dropdown-submenu">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Rutas</a>
+                    <ul class="dropdown-menu">
+                      <li class="kopie"><a href="<%= new_route_path %>">Crear</a></li>
+                      <li><a href="<%= routes_path %>">Mostrar</a></li>
+                    </ul>
+                  </li>
+
                 </ul>
               </li>
+              <li><a href="<%= new_asignation_path %>">Asignaciones</a></li>
 
               <% if current_user %>                
                 <li><a <%= link_to "Log Out", logout_path %> </a></li> 

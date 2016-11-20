@@ -1,5 +1,96 @@
-<h1>New Asignation</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-14 col-sm-14 col-md-7 col-lg-7 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" > 
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">Nueva Asignacion</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">	          			
+						<div class=" col-md-18 col-lg-19 ">
+							<div class="form-area">
+								<%= form_for(@asignation, url: asignations_path) do |f| %>
+								<div class="form-group">
+								<label class="control-label" for="companies_id">Semana</label>					          
+									<%= f.text_field :Num_Semana, class: "form-control",id: "alto", placeholder: "Numero de Semana", :required => true %>
+								</div>							          
 
-<%= render 'form', asignation: @asignation %>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group registration-date">					                
+										<div class="input-group registration-date-time">
+											<label class="col-md-4 control-label" for="Hora_Colocacion">Fecha</label>
+											<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
+											<input class="form-control" name="Fecha_Colocacion" id="registration-date" type="date">							            		
+										</div>
+									</div>
+								</div>
 
-<%= link_to 'Back', asignations_path %>
+								<div class="col-xs-13 col-sm-13 col-md-13">
+									<div class="form-group registration-date">					                
+										<div class="input-group registration-date-time">
+											<label class="col-md-11 control-label" for="Hora_Colocacion">Hora</label>
+											<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></span>
+											<input class="form-control" name="Hora_Colocacion" id="registration-time" type="time">							            		
+										</div>
+									</div>
+								</div>
+
+								<div class="col-xs-4">
+									<div class="form-group">
+										<label class="control-label" for="companies_id">Empresa</label>
+										<%= f.collection_select(:companies_id, Company.all, :id, :Nombre, prompt: true) %>
+									</div>
+								</div>
+								<br>
+								<div class="col-xs-9">
+									<div class="form-group">
+									<label class="control-label" for="predios_id">Predio Recoge</label>
+										<%= f.collection_select(:predios_id, Predio.all, :id, :Nombre, prompt: true) %>
+									</div>
+								</div>
+
+								<div class="col-xs-9">
+									<div class="form-group">
+										<label class="control-label" for="predios_id2">Predio Entrega</label>
+										<%= f.collection_select(:predios_id2, Predio.all, :id, :Nombre, prompt: true) %>
+									</div>
+								</div>
+
+								<div class="col-xs-9">
+									<div class="form-group">
+										<label class="control-label" for="plantum_id">Planta</label>
+										<%= f.collection_select(:plantum_id, Plantum.all, :id, :Nombre, prompt: true) %>
+									</div>
+								</div>
+
+								<div class="col-xs-9">
+									<div class="form-group">
+										<label class="control-label" for="navieras_id">Naviera</label>
+										<%= f.collection_select(:navieras_id, Naviera.all, :id, :Nombre, prompt: true) %>
+									</div>
+								</div>
+
+								<div class="col-xs-9">
+									<div class="form-group">
+										<label class="control-label" for="cliente_navieras_id">Cliente</label>
+										<%= f.collection_select(:cliente_navieras_id, ClienteNaviera.all, :id, :Nombre, prompt: true) %>
+									</div>
+								</div>
+
+								<div class="col-xs-9">
+									<div class="form-group">
+										<label class="control-label" for="routes_id">Ruta</label>
+										<%= f.collection_select(:routes_id, Route.all, :id, :Nombre, prompt: true) %>
+									</div>
+								</div>
+
+								<%= f.submit "Submit", class: "btn btn-primary pull-right" %>
+								<% end %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

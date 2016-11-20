@@ -1,64 +1,75 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Cod asignacion:</strong>
-  <%= @asignation.Cod_Asignacion %>
-</p>
-
-<p>
-  <strong>Num semana:</strong>
-  <%= @asignation.Num_Semana %>
-</p>
-
-<p>
-  <strong>Fecha colocacion:</strong>
-  <%= @asignation.Fecha_Colocacion %>
-</p>
-
-<p>
-  <strong>Hora colocacion:</strong>
-  <%= @asignation.Hora_Colocacion %>
-</p>
-
-<p>
-  <strong>Activo:</strong>
-  <%= @asignation.Activo %>
-</p>
-
-<p>
-  <strong>Cod empresa:</strong>
-  <%= @asignation.Cod_Empresa %>
-</p>
-
-<p>
-  <strong>Cod predio retiro:</strong>
-  <%= @asignation.Cod_Predio_Retiro %>
-</p>
-
-<p>
-  <strong>Cod predio entrega:</strong>
-  <%= @asignation.Cod_Predio_Entrega %>
-</p>
-
-<p>
-  <strong>Cod planta:</strong>
-  <%= @asignation.Cod_Planta %>
-</p>
-
-<p>
-  <strong>Cod naviera:</strong>
-  <%= @asignation.Cod_Naviera %>
-</p>
-
-<p>
-  <strong>Cod cliente:</strong>
-  <%= @asignation.Cod_Cliente %>
-</p>
-
-<p>
-  <strong>Cod ruta:</strong>
-  <%= @asignation.Cod_Ruta %>
-</p>
-
-<%= link_to 'Edit', edit_asignation_path(@asignation) %> |
-<%= link_to 'Back', asignations_path %>
+<br>
+<div class="container">
+    <div class="row">      
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title">Asignacion</h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 " align="center">                     
+                    </div>                
+                      <div class=" col-md-9 col-lg-9 "> 
+                        <table class="table table-user-information">
+                          <tbody>
+                            <tr>
+                              <td>Cod. Asignacion:</td>
+                              <td><%= @asignation.Cod_Asignacion %></td>
+                            </tr>                      
+                            <tr>
+                              <td>Num. Semana:</td>
+                              <td><%= @asignation.Num_Semana %></td>
+                            </tr>
+                            <tr>
+                              <td>Fecha Colocacion:</td>
+                              <td><%= @asignation.Fecha_Colocacion %></td>
+                            </tr>
+                            <tr>
+                              <td>Hora Colocacion:</td>
+                              <td><%= @asignation.Hora_Colocacion %></td>
+                            </tr>
+                            <tr>
+                              <td>Activo:</td>
+                              <td><%= @asignation.Activo %></td>
+                            </tr>
+                            <tr>
+                              <td>Empresa:</td>
+                              <td><%= Company.find(@asignation.companies_id).Nombre %></td>
+                            </tr>
+                            <tr>
+                              <td>Predio Recoge:</td>
+                              <td><%= Predio.find(@asignation.predios_id).Nombre %></td>
+                            </tr>
+                            <tr>
+                              <td>Predio Entrega:</td>
+                              <td><%= Predio.find(@asignation.predios_id2).Nombre %></td>
+                            </tr>
+                            <tr>
+                              <td>Planta:</td>
+                              <td><%= Plantum.find(@asignation.plantum_id).Nombre %></td>
+                            </tr>
+                            <tr>
+                              <td>Naviera:</td>
+                              <td><%= Naviera.find(@asignation.navieras_id).Nombre %></td>
+                            </tr>
+                            <tr>
+                              <td>Cliente:</td>
+                              <td><%= ClienteNaviera.find(@asignation.cliente_navieras_id).Nombre %></td>
+                            </tr>
+                            <tr>
+                              <td>Ruta:</td>
+                              <td><%= Route.find(@asignation.routes_id).Nombre %></td>
+                            </tr>
+                          </tbody>
+                        </table>                    
+                        <a href="<%= edit_asignation_path(@asignation) %>" class="btn btn-primary">Editar</a>
+                        <a href="<%= asignations_path %>" class="btn btn-primary">Atras</a>
+                      </div>                  
+                </div>                             
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
