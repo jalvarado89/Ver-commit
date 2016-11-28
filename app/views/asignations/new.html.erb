@@ -16,11 +16,11 @@
 								</div>							          
 
 								<div class="col-xs-6 col-sm-6 col-md-6">
-									<div class="form-group registration-date">					                
+									<div class="form-group registration-date">
 										<div class="input-group registration-date-time">
-											<label class="col-md-4 control-label" for="Hora_Colocacion">Fecha</label>
+											<label class="col-md-4 control-label" for="fecha">Fecha</label>
 											<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
-											<input class="form-control" name="Fecha_Colocacion" id="registration-date" type="date">							            		
+											<%= f.date_field( :fecha, id:"registration-date", class:"form-control") %>
 										</div>
 									</div>
 								</div>
@@ -28,19 +28,23 @@
 								<div class="col-xs-13 col-sm-13 col-md-13">
 									<div class="form-group registration-date">					                
 										<div class="input-group registration-date-time">
-											<label class="col-md-11 control-label" for="Hora_Colocacion">Hora</label>
+											<label class="col-md-11 control-label" for="hora">Hora</label>
 											<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></span>
-											<input class="form-control" name="Hora_Colocacion" id="registration-time" type="time">							            		
+											<%= f.text_field( :hora, class: "form-control", id:"registration-time", type: 'time') %>											
 										</div>
 									</div>
 								</div>
-
-								<div class="col-xs-4">
-									<div class="form-group">
-										<label class="control-label" for="companies_id">Empresa</label>
-										<%= f.collection_select(:companies_id, Company.all, :id, :Nombre, prompt: true) %>
+								<% if current_user.companies_id == 1 %>								
+									<div class="col-xs-4">
+										<div class="form-group">
+											<label class="control-label" for="companies_id">Empresa</label>
+											<%= f.collection_select(:companies_id, Company.all, :id, :Nombre, prompt: true) %>
+										</div>
 									</div>
-								</div>
+								<% else %>
+									<%= f.hidden_field(:companies_id, :value => current_user.companies_id) %>			
+								<% end %>
+								
 								<br>
 								<div class="col-xs-9">
 									<div class="form-group">

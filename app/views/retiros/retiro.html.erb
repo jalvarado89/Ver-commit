@@ -6,7 +6,7 @@
     <div class="bs-calltoaction bs-calltoaction-primary">
       <div class="row">        
         <div class="col-md-9 cta-contents">
-          <h1 class="cta-title">Asignacion # <%= asignation.id %> </h1>
+          <h1 class="cta-title">Asignacion # <%= @valor = asignation.id %> </h1>
           <div class="cta-desc">            
             <table class="table table-user-information">
               <thead>
@@ -30,16 +30,16 @@
                     <%= asignation.hora%>
                   </td>
                   <td class="col-sm-2">
-                    <%= Company.find(asignation.companies_id).Nombre %>
+                    <%= Company.find(asignation.companies_id).Nombre %>          
                   </td>
                   <td class="col-sm-3">
                     <%= Route.find(asignation.routes_id).Nombre %>
                   </td>
                 </tr>
               </tbody>
-              </table>
+            </table>
 
-              <table class="table table-user-information">
+            <table class="table table-user-information">
               <thead>
                 <tr>
                   <td><h5> Predio Retiro: </h5></td>
@@ -68,14 +68,66 @@
                   </td>
                 </tr>
               </tbody>
+            </table>   
+          </div>
+        </div>        
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<div class="container">
+  <% @contenedors.each do |contenedor| %>
+  <div class="col-sm-12">
+    <div class="bs-calltoaction bs-calltoaction-default">
+      <div class="row">        
+        <div class="col-md-9 cta-contents">
+          <div class="cta-desc">            
+            <table class="table table-user-information">
+              <thead>
+                <tr>
+                  <td><h5> Sigla: </h5></td>
+                  <td><h5> Numero: </h5></td>
+                  <td><h5> Marchamo:</h5></td>
+                  <td><h5> Temperatura: </h5></td>
+                  <td><h5> Cant ejes: </h5></td>
+                  <td><h5> Activo: </h5></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-sm-2">
+                    <%= contenedor.Sigla %>
+                  </td>
+                  <td class="col-sm-3">
+                    <%= contenedor.Numero %>
+                  </td>
+                  <td class="col-sm-3">
+                    <%= contenedor.Marchamo%>
+                  </td>
+                  <td class="col-sm-2">
+                    <%= contenedor.Temperatura %>          
+                  </td>
+                  <td class="col-sm-3">
+                    <%= contenedor.Cant_Ejes %>
+                  </td>
+                  <% if (contenedor.Activo) %>
+                  	<td class="col-sm-3">Si</td>
+                  <% else %>
+                  	<td class="col-sm-3">Retirado</td>
+                  <% end %>
+                  
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
-        <div class="col-md-2 cta-button">
-          <%=button_to "Eliminar", asignation, :method => :delete, :class => "btn btn-lg btn-block btn-default", :confirm => "You sure ?"%>
-          <a href="<%= edit_asignation_path(asignation) %>" class="btn btn-lg btn-block btn-default">Editar</a>
-          <a href="<%= "/asignacion/".to_s + (asignation.id).to_s %>" class="btn btn-lg btn-block btn-default">Asignar</a>
-        </div>
+        <% if (contenedor.Activo) %>
+	        <div class="col-md-2 cta-button">
+	          <a href="<%= "/retirar/".to_s + (contenedor.id).to_s  %>" class="btn btn-lg btn-block btn-default">Retirar</a>
+	        </div>
+        <% end %>
       </div>
     </div>
   </div>

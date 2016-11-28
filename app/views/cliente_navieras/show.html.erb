@@ -28,7 +28,7 @@
                             </tr>
                             <tr>
                               <td>Naviera:</td>
-                              <td><%= @cliente_naviera.navieras_id %></td>
+                              <td><%= Naviera.find(@cliente_naviera.navieras_id).Nombre %></td>
                             </tr>
                           </tbody>
                         </table>

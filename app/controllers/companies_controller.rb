@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
-  layout 'layout'
-  before_action :set_company, only: [:show, :edit, :update, :destroy]
+  layout :another_layout
+  before_action :set_company, :require_user, only: [:show, :edit, :update, :destroy]
 
   # GET /companies
   # GET /companies.json

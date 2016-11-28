@@ -5,8 +5,8 @@
   <div class="col-sm-12">
     <div class="bs-calltoaction bs-calltoaction-primary">
       <div class="row">        
-        <div class="col-md-9 cta-contents">
-          <h1 class="cta-title">Asignacion # <%= asignation.id %> </h1>
+        <div class="col-md-9 cta-contents">          
+          <h1 class="cta-title">Asignacion # <%= asignation.Cod_Asignacion %> </h1>
           <div class="cta-desc">            
             <table class="table table-user-information">
               <thead>
@@ -24,13 +24,13 @@
                     <%= asignation.Num_Semana %>
                   </td>
                   <td class="col-sm-3">
-                    <%= asignation.fecha %>
+                    <%= asignation.Fecha_Colocacion %>
                   </td>
                   <td class="col-sm-3">
-                    <%= asignation.hora%>
+                    <%= asignation.Hora_Colocacion%>
                   </td>
                   <td class="col-sm-2">
-                    <%= Company.find(asignation.companies_id).Nombre %>
+                    <%= Company.find(asignation.companies_id).Nombre %>          
                   </td>
                   <td class="col-sm-3">
                     <%= Route.find(asignation.routes_id).Nombre %>
@@ -68,14 +68,8 @@
                   </td>
                 </tr>
               </tbody>
-            </table>
+            </table>   
           </div>
-        </div>
-        <div class="col-md-2 cta-button">
-          <%=button_to "Eliminar", asignation, :method => :delete, :class => "btn btn-lg btn-block btn-default", :confirm => "You sure ?"%>
-          <a href="<%= edit_asignation_path(asignation) %>" class="btn btn-lg btn-block btn-default">Editar</a>
-          <a href="<%= "/asignacion/".to_s + (asignation.id).to_s %>" class="btn btn-lg btn-block btn-default">Asignar</a>
-        </div>
       </div>
     </div>
   </div>

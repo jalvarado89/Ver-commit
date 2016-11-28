@@ -1,0 +1,174 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <% @asignations.each do |asignation| %>
+  <div class="col-sm-12">
+    <div class="bs-calltoaction bs-calltoaction-primary">
+      <div class="row">        
+        <div class="col-md-9 cta-contents">
+          <h1 class="cta-title">Asignacion # <%= @valor = asignation.id %> </h1>
+          <div class="cta-desc">            
+            <table class="table table-user-information">
+              <thead>
+                <tr>
+                  <td><h5> Num Semana: </h5></td>
+                  <td><h5> Fecha Colocacion: </h5></td>
+                  <td><h5> Hora Colocacion:</h5></td>
+                  <td><h5> Empresa: </h5></td>
+                  <td><h5> Ruta: </h5></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-sm-2">
+                    <%= asignation.Num_Semana %>
+                  </td>
+                  <td class="col-sm-3">
+                    <%= asignation.fecha %>
+                  </td>
+                  <td class="col-sm-3">
+                    <%= asignation.hora%>
+                  </td>
+                  <td class="col-sm-2">
+                    <%= Company.find(asignation.companies_id).Nombre %>          
+                  </td>
+                  <td class="col-sm-3">
+                    <%= Route.find(asignation.routes_id).Nombre %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="table table-user-information">
+              <thead>
+                <tr>
+                  <td><h5> Predio Retiro: </h5></td>
+                  <td><h5> Predio Entrega: </h5></td>
+                  <td><h5> Planta: </h5></td>
+                  <td><h5> Naviera:</h5></td>
+                  <td><h5> Cliente: </h5></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-sm-3">
+                    <%= Predio.find(asignation.predios_id).Nombre %>  
+                  </td>
+                  <td class="col-sm-3">
+                    <%= Predio.find(asignation.predios_id2).Nombre %>
+                  </td>
+                  <td class="col-sm-2">
+                    <%= Plantum.find(asignation.plantum_id).Nombre %>
+                  </td>
+                  <td class="col-sm-2">
+                    <%= Naviera.find(asignation.navieras_id).Nombre %>
+                  </td>
+                  <td class="col-sm-3">
+                    <%= ClienteNaviera.find(asignation.cliente_navieras_id).Nombre %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>   
+          </div>
+        </div>        
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<div class="container">
+  <% @contenedors.each do |contenedor| %>
+  <div class="col-sm-12">
+    <div class="bs-calltoaction bs-calltoaction-default">
+      <div class="row">        
+        <div class="col-md-9 cta-contents">
+          <div class="cta-desc">            
+            <table class="table table-user-information">
+              <thead>
+                <tr>
+                  <td><h5> Sigla: </h5></td>
+                  <td><h5> Numero: </h5></td>
+                  <td><h5> Marchamo:</h5></td>
+                  <td><h5> Temperatura: </h5></td>
+                  <td><h5> Cant ejes: </h5></td>
+                  <td><h5> Activo: </h5></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-sm-2">
+                    <%= contenedor.Sigla %>
+                  </td>
+                  <td class="col-sm-3">
+                    <%= contenedor.Numero %>
+                  </td>
+                  <td class="col-sm-3">
+                    <%= contenedor.Marchamo%>
+                  </td>
+                  <td class="col-sm-2">
+                    <%= contenedor.Temperatura %>          
+                  </td>
+                  <td class="col-sm-3">
+                    <%= contenedor.Cant_Ejes %>
+                  </td>
+                  <% if (contenedor.Activo) %>
+                    <td class="col-sm-3">Si</td>
+                  <% else %>
+                    <td class="col-sm-3">Retirado</td>
+                  <% end %>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <% if (contenedor.Activo) %>
+        <div class="col-md-2 cta-button">
+          <%=button_to "Eliminar", contenedor, :method => :delete, :class => "btn btn-lg btn-block btn-default", :confirm => "You sure ?"%>          
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
+<div class="container">
+   <%= form_for(@num_contenedor, url: num_contenedors_path) do |o| %>
+   <table id="myTable" class=" table order-list">
+      <thead>
+        <tr>
+          <td>Sigla</td>
+          <td>Numero</td>
+          <td>Marchamo</td>
+          <td>Temperatura</td>
+          <td>Cant. Ejes</td>
+        </tr>
+      </thead>
+      <tbody>
+         <tr>
+          <td class="col-sm-1">
+            <%= o.text_field :Sigla, class: "form-control", id:"ancho", placeholder: "Sigla", :required => true %>
+          </td>
+          <td class="col-sm-2">
+            <%= o.text_field :Numero, class: "form-control", id:"ancho", placeholder: "Numero", :required => true %>
+          </td>
+          <td class="col-sm-2">
+            <%= o.text_field :Marchamo, class: "form-control", id:"ancho", placeholder: "Marchamo", :required => true %>
+          </td>
+          <td class="col-sm-2">
+            <%= o.text_field :Temperatura, class: "form-control", id:"ancho", placeholder: "Temperatura", :required => true %>
+          </td>
+          <td class="col-sm-3">
+            <%= o.select :Cant_Ejes, options_for_select([["--Seleccione--", ""], "2 Ejes", "3 Ejes"]), :class => 'form-control' %>
+          </td>
+          <%= o.hidden_field(:asignations_id, :value => @valor) %>            
+          <td colspan="5" style="text-align: left;">
+            <%= o.submit "Submit", class: "btn btn-lg btn-block" %>					
+          </td>
+        </tr>
+      </tbody>
+  </table>
+  <% end %>
+</div>

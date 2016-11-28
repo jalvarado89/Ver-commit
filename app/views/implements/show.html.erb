@@ -28,7 +28,7 @@
                             </tr>
                             <tr>
                               <td>Camion:</td>
-                              <td><%= @implement.trucks_id %></td>
+                              <td><%= Truck.find(@implement.trucks_id).Placa %></td>
                             </tr>
                           </tbody>
                         </table>                    

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  layout 'layout'
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  layout :another_layout
+  before_action :set_user, :require_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -26,36 +26,29 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params) 
-    if @user.save 
-      session[:user_id] = @user.id 
-      redirect_to '/'
+    @user.companies_id = 1
+    if @user.save      
+      redirect_to login_path, notice: 'Exito. Su cuenta debe ser Activada. Contacte con la Empresa'
     else 
-      redirect_to signup_new_path 
+      redirect_to new_user_path, notice: 'Error. Datos no guardados'
     end 
   end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
-  def update
-    respond_to do |format|
+  def update    
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+        redirect_to users_path, notice: 'Exito. Usuario guardado'
       else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        redirect_to users_path, notice: 'Error. Datos no guardados'
       end
-    end
   end
 
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
     @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to users_path, notice: 'Exito. Usuario eliminado'    
   end
 
   private
@@ -66,6 +59,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:Nombre, :Apellidos, :Empresa, :Telefono, :email, :password_digest)
+      params.require(:user).permit(:Nombre, :Apellidos, :Telefono, :email, :password_digest, :Activo, :tipo, :companies_id)
     end
 end

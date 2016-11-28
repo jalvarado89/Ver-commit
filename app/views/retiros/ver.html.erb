@@ -72,9 +72,7 @@
           </div>
         </div>
         <div class="col-md-2 cta-button">
-          <%=button_to "Eliminar", asignation, :method => :delete, :class => "btn btn-lg btn-block btn-default", :confirm => "You sure ?"%>
-          <a href="<%= edit_asignation_path(asignation) %>" class="btn btn-lg btn-block btn-default">Editar</a>
-          <a href="<%= "/asignacion/".to_s + (asignation.id).to_s %>" class="btn btn-lg btn-block btn-default">Asignar</a>
+          <a href="<%= "/retiro/".to_s + (asignation.id).to_s %>" class="btn btn-lg btn-block btn-default">Retiro</a>
         </div>
       </div>
     </div>

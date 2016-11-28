@@ -1,5 +1,8 @@
+
+
+
 <div class="container">
-	<%= form_for(@num_contenedor, url: new_num_contenedor_path) do |f| %>
+	<%= form_for(@num_contenedor, url: num_contenedors_path) do |f| %>
 	<table id="myTable" class=" table order-list">
 		<thead>
 			<tr>
@@ -31,8 +34,9 @@
 						<option> 3 Ejes </option>
 					</select>
 				</td>
+				
 				<td colspan="5" style="text-align: left;">
-					<input type="summit" class="btn btn-lg btn-block " id="addrow" value="Summit" />
+					<input type="Submit" class="btn btn-lg btn-block" id="addrow" value="Submit" />
 				</td>
 			</tr>
 		</tbody>
@@ -40,4 +44,3 @@
 	<% end %>
 </div>
 
-<%= javascript_include_tag "Asignacions/num_contenedor" %>

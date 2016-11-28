@@ -1,11 +1,11 @@
 class SessionsController < ApplicationController
-	layout 'layout'
+  layout 'default'
 	def new
-    end
+  end
 
-    def create
+  def create
     if user = User.find_by(params[:username], params[:password_digest])
-      session[:current_user_id] = user.id
+      session[:current_user_id] = user.id      
       redirect_to root_url
     else
       render 'new'
@@ -14,7 +14,8 @@ class SessionsController < ApplicationController
 
   def destroy
     # Remove the user id from the session
-    @_current_user = session[:current_user_id] = nil
-    redirect_to root_url
+    @_current_user = session[:current_user_id] = nil    
+    @_admin_layout = session[:layout] = nil
+    redirect_to login_path
   end
 end

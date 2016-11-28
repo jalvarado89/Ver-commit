@@ -1,6 +1,6 @@
 class PlantaController < ApplicationController
-  layout 'layout'
-  before_action :set_plantum, only: [:show, :edit, :update, :destroy]
+  layout :another_layout
+  before_action :set_plantum, :require_user, only: [:show, :edit, :update, :destroy]
 
   # GET /planta
   # GET /planta.json

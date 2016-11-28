@@ -1,6 +1,6 @@
 class ImplementsController < ApplicationController
-  layout 'layout'
-  before_action :set_implement, only: [:show, :edit, :update, :destroy]
+  layout :another_layout
+  before_action :set_implement, :require_user, only: [:show, :edit, :update, :destroy]
 
   # GET /implements
   # GET /implements.json

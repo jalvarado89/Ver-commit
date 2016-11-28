@@ -1,6 +1,6 @@
 class ClienteNavierasController < ApplicationController
-  layout 'layout'
-  before_action :set_cliente_naviera, only: [:show, :edit, :update, :destroy]
+  layout :another_layout
+  before_action :set_cliente_naviera, :require_user, only: [:show, :edit, :update, :destroy]
 
   # GET /cliente_navieras
   # GET /cliente_navieras.json

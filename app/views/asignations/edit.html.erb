@@ -13,41 +13,49 @@
                     <div class=" col-md-9 col-lg-9 ">
                   <div class="form-area">
                   <%= form_for(@asignation, url: asignation_path) do |f| %>
-                      <br style="clear:both">
+                      <br style="clear:both">                      
                       <div class="form-group">
-                          <%= f.text_field :Cod_Asignacion, class: "form-control", placeholder: "Asignacion", :required => true %>
-                      </div>
-                      <div class="form-group">
+                        <label for="Num_Semana">N° Semana</label>
                         <%= f.text_field :Num_Semana, class: "form-control", placeholder: "Num Semana", :required => true %>
-                    </div>
-                      <div class="form-group">
-                          <%= f.text_field :Fecha_Colocacion, class: "form-control", placeholder: "Fecha Colocacion", :required => true %>
                       </div>
                       <div class="form-group">
-                          <%= f.text_field :Hora_Colocacion, class: "form-control", placeholder: "Hora Colocacion", :required => true %>
+                        <label for="fecha">Fecha</label>
+                        <%= f.text_field :fecha, class: "form-control", placeholder: "Fecha Colocacion", :required => true %>
+                      </div>
+                      <div class="form-group">
+                          <label for="hora">Hora</label>
+                          <%= f.text_field :hora, class: "form-control", placeholder: "Hora Colocacion", :required => true %>
                       </div>
                        <div class="form-group">
-                          <%= f.check_box :Activo, {}, true, @asignation.Activo %>
+                          <label for="Activo">Activo</label>
+                          <%= f.check_box(:Activo, {:value => "@asignation.Activo"}) %>
                       </div>
                       <div class="form-group">
+                      <label for="companies_id">Empresa</label>
                       <%= f.select :companies_id, options_from_collection_for_select(Company.all, :id, :Nombre, @asignation.companies_id) %>
                       </div>
                       <div class="form-group">
+                      <label for="predios_id">Predio Retiro</label>
                       <%= f.select :predios_id, options_from_collection_for_select(Predio.all, :id, :Nombre, @asignation.predios_id) %>
                       </div>
                       <div class="form-group">
+                      <label for="predios_id2">Predio Entrega</label>
                       <%= f.select :predios_id2, options_from_collection_for_select(Predio.all, :id, :Nombre, @asignation.predios_id2) %>
                       </div>
                       <div class="form-group">
+                      <label for="plantum_id">Planta</label>
                       <%= f.select :plantum_id, options_from_collection_for_select(Plantum.all, :id, :Nombre, @asignation.plantum_id) %>
                       </div>
                       <div class="form-group">
+                      <label for="navieras_id">Naviera</label>
                       <%= f.select :navieras_id, options_from_collection_for_select(Naviera.all, :id, :Nombre, @asignation.navieras_id) %>
                       </div>
                        <div class="form-group">
+                       <label for="cliente_navieras_id">Cliente</label>
                       <%= f.select :cliente_navieras_id, options_from_collection_for_select(ClienteNaviera.all, :id, :Nombre, @asignation.cliente_navieras_id) %>
                       </div>
                       <div class="form-group">
+                      <label for="routes_id">Ruta</label>
                       <%= f.select :routes_id, options_from_collection_for_select(Route.all, :id, :Nombre, @asignation.routes_id) %>
                       </div>
                     <%= f.submit "Submit", class: "btn btn-primary pull-right" %>

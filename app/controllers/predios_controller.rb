@@ -1,6 +1,6 @@
 class PrediosController < ApplicationController
-  layout 'layout'
-  before_action :set_predio, only: [:show, :edit, :update, :destroy]
+  layout :another_layout
+  before_action :set_predio, :require_user, only: [:show, :edit, :update, :destroy]
 
   # GET /predios
   # GET /predios.json

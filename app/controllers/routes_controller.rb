@@ -1,6 +1,6 @@
 class RoutesController < ApplicationController
-  layout 'layout'
-  before_action :set_route, only: [:show, :edit, :update, :destroy]
+  layout :another_layout
+  before_action :set_route, :require_user, only: [:show, :edit, :update, :destroy]
 
   # GET /routes
   # GET /routes.json

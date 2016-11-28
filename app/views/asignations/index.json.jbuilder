@@ -1,1 +1,0 @@
-json.array! @asignations, partial: 'asignations/asignation', as: :asignation

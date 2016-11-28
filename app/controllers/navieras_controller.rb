@@ -1,6 +1,6 @@
 class NavierasController < ApplicationController
-  layout 'layout'
-  before_action :set_naviera, only: [:show, :edit, :update, :destroy]
+  layout :another_layout
+  before_action :set_naviera, :require_user, only: [:show, :edit, :update, :destroy]
 
   # GET /navieras
   # GET /navieras.json

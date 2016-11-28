@@ -1,1 +1,0 @@
-json.partial! "asignations/asignation", asignation: @asignation

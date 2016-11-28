@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+  resources :retiro_contenedors
+  resources :retiros
   resources :navieras
   root 'default#index'
+  get '/asignacion/:id', to: 'asignations#asignacion'
+
+  get '/ver', to: 'retiros#ver'
+  get '/retiro/:id', to: 'retiros#retiro'
+  get '/retirar/:id', to: 'retiros#retirar'
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'

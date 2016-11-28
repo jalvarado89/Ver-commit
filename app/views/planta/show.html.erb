@@ -32,7 +32,7 @@
                             </tr>
                             <tr>
                               <td>Empresa:</td>
-                              <td><%= @plantum.companies_id %></td>
+                              <td><%= Company.find(@plantum.companies_id).Nombre %></td>
                             </tr>
                           </tbody>
                         </table>                    

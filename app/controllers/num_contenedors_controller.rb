@@ -1,77 +1,47 @@
 class NumContenedorsController < ApplicationController
-  layout "layout"
-  before_action :set_num_contenedor, only: [:show, :edit, :update, :destroy]
+  layout :another_layout
+  before_action :set_num_contenedor, :require_user, only: [:show, :edit, :update, :destroy]
 
   # GET /num_contenedors
   # GET /num_contenedors.json
   def index
     @num_contenedors = NumContenedor.all
-  end
 
-  # GET /num_contenedors/1
-  # GET /num_contenedors/1.json
-  def show
   end
 
   # GET /num_contenedors/new
-  def new
+  def new      
     @num_contenedor = NumContenedor.new
-  end
-
-  # GET /num_contenedors/1/edit
-  def edit
   end
 
   # POST /num_contenedors
   # POST /num_contenedors.json
   def create
     @num_contenedor = NumContenedor.new(num_contenedor_params)
-    @num_contenedor.Activo = true
-    @num_contenedor.asignations_id = 1
-
-    respond_to do |format|
-      if @num_contenedor.save
-        format.html { redirect_to @num_contenedor, notice: 'Num contenedor was successfully created.' }
-        format.json { render :show, status: :created, location: @num_contenedor }
-      else
-        format.html { render :new }
-        format.json { render json: @num_contenedor.errors, status: :unprocessable_entity }
+    @num_contenedor.Activo = true    
+    
+      if @num_contenedor.save        
+        redirect_to "/asignacion/".to_s + @num_contenedor.asignations_id.to_s, notice: 'Exito. Datos Guardados'
+      else        
+        redirect_to "/asignacion/".to_s + @num_contenedor.asignations_id.to_s, notice: 'Error. Datos no fueron Guardados'
       end
-    end
-  end
-
-  # PATCH/PUT /num_contenedors/1
-  # PATCH/PUT /num_contenedors/1.json
-  def update
-    respond_to do |format|
-      if @num_contenedor.update(num_contenedor_params)
-        format.html { redirect_to @num_contenedor, notice: 'Num contenedor was successfully updated.' }
-        format.json { render :show, status: :ok, location: @num_contenedor }
-      else
-        format.html { render :edit }
-        format.json { render json: @num_contenedor.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # DELETE /num_contenedors/1
   # DELETE /num_contenedors/1.json
   def destroy
     @num_contenedor.destroy
-    respond_to do |format|
-      format.html { redirect_to num_contenedors_url, notice: 'Num contenedor was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to "/asignacion/".to_s + @num_contenedor.asignations_id.to_s
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_num_contenedor
-      @num_contenedor = NumContenedor.find(params[:id])
+      @num_contenedor = NumContenedor.find(params[:id])      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def num_contenedor_params
-      params.require(:num_contenedor).permit(:Sigla, :Numero, :Marchamo, :Temperatura, :Cant_Ejes, :Activo, :asignations_id)
+      params.require(:num_contenedor).permit(:Sigla, :Numero, :Marchamo, :Temperatura, :Cant_Ejes, :asignations_id)
     end
 end

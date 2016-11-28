@@ -102,7 +102,28 @@
 
                 </ul>
               </li>
-              <li><a href="<%= new_asignation_path %>">Asignaciones</a></li>
+
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Usuarios<span class="caret"></span></a>                
+                <ul class="dropdown-menu" role="menu">                  
+                  <li> <a href="<%= users_path %>">Mostrar</a> </li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Asignaciones<span class="caret"></span></a>                
+                <ul class="dropdown-menu" role="menu">
+                  <li> <a href="<%= new_asignation_path %>">Crear</a> </li>
+                  <li> <a href="<%= asignations_path %>">Mostrar</a> </li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Retiros<span class="caret"></span></a>                
+                <ul class="dropdown-menu" role="menu">                  
+                  <li> <a href="<%= ver_path %>">Mostrar</a> </li>
+                </ul>
+              </li>
 
               <% if current_user %>                
                 <li><a <%= link_to "Log Out", logout_path %> </a></li> 

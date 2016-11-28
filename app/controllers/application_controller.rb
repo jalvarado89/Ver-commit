@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user
+    helper_method :current_user    
 
 	private
 
@@ -9,6 +9,14 @@ class ApplicationController < ActionController::Base
 
   def require_user 
   	redirect_to '/login' unless current_user 
+  end
+
+  def another_layout
+  	if current_user.tipo == "Administrador"
+        "layout"
+    else
+        "invitado"
+    end
   end
 
 end

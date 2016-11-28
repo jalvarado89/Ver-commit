@@ -51,4 +51,7 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  my_date_formats = { :default => '%Y-%m-%d' } 
+  Date::DATE_FORMATS.merge!(my_date_formats)
 end
