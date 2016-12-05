@@ -1,4 +1,4 @@
 class Driver < ActiveRecord::Base
 	has_many :Trucks
-	belongs_to :Retiro_Contenedor, optional: true
+	has_many :Retiros, :primary_key => "id"
 end

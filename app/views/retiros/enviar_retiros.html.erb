@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+sdgsdg;
+<div class="container">
+  <% @retiros.each do |retiro| %>  
+  <div class="col-sm-12">
+    <div class="bs-calltoaction bs-calltoaction-primary">
+      <div class="row">
+        <div class="col-md-9 cta-contents">
+          <div class="cta-desc">
+            <table class="table table-user-information">
+              <thead>
+                <tr>
+                  <td><h5> Sigla: </h5></td>
+                  <td><h5> Numero: </h5></td>
+                  <td><h5> Marchamo:</h5></td>
+                  <td><h5> Temperatura: </h5></td>
+                  <td><h5> Cant ejes: </h5></td>
+                  <td><h5> Activo: </h5></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-sm-2">
+                    <%= retiro.fecha %>
+                  </td>
+                  <td class="col-sm-3">
+                    <%= retiro.num_contenedors_id %>
+                  </td>
+                  <td class="col-sm-3">
+                    <%= retiro.drivers_id%>
+                  </td>
+                  <td class="col-sm-2">
+                    <%= retiro.trucks_id %>
+                  </td>
+                  <td class="col-sm-3">
+                    <%= retiro.implements_id %>
+                  </td>
+                  <td class="col-sm-3">
+                    <%= retiro.asignations_id %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

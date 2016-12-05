@@ -20,6 +20,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'autoprefixer-rails'
 
+gem 'rails_12factor', group: :production
+
 #es el servidor que va a levantar nuestra aplicación dentro de Heroku
 group :production do
   gem "unicorn"

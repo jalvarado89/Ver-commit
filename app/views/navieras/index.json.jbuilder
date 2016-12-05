@@ -1,1 +1,0 @@
-json.array! @navieras, partial: 'navieras/naviera', as: :naviera

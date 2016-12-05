@@ -1,1 +1,0 @@
-json.array! @cliente_navieras, partial: 'cliente_navieras/cliente_naviera', as: :cliente_naviera

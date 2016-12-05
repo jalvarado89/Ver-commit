@@ -1,5 +1,6 @@
 class Asignation < ActiveRecord::Base
-	has_and_belongs_to_many :Retiros
+	has_many :Retiros, :primary_key => "id"
+	
 	belongs_to :Num_Contenedor, optional: true
 	has_many :Companies
 	has_many :Predios

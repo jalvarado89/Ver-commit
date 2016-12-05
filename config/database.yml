@@ -48,6 +48,7 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
   database: Transportes-Juanva_production
   username: Transportes-Juanva
   password: <%= ENV['TRANSPORTES-JUANVA_DATABASE_PASSWORD'] %>

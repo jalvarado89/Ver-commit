@@ -8,6 +8,17 @@ class RetirosController < ApplicationController
     @retiros = Retiro.all
   end
 
+  #informe retiros efectuados por semana
+  def ver_retiros
+  end
+#@retiro = Retiro.includes(:asignations, :num_contenedors, :drivers, :trucks, :implements).select('fecha, asignations.id, asignations.Num_Semana, routes.Nombre, num_contenedors.Sigla, num_contenedors.Numero, num_contenedors.Cant_Ejes, drivers.Nombre, trucks.Placa, implements.Num_Chasis').where('asignations.Num_Semana': params[:Num_Semana], 'num_contenedors.Activo': true)
+  def enviar_retiros    
+    @retiros = Retiro.joins(:Asignation).includes(:NumContenedor,:Driver, :Truck, :Implement).select(:fecha, :'asignations.id', :'asignations.Num_Semana', :'num_contenedors.Sigla', :'num_contenedors.Numero', :'num_contenedors.Cant_Ejes', :'drivers.Nombre', :'trucks.Placa', :'implements.Num_Chasis').where(:asignations => {Num_Semana: params[:Num_Semana]}).all
+    #unless @retiros      
+      #redirect_to view_path, notice: @retiros.to_sql + ' No se encontraron resultados'      
+    #end
+  end
+
   #Muestra Asignaciones Activas
   def ver
     @asignations = Asignation.where(Activo: true)    

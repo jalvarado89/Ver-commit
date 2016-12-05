@@ -12,11 +12,15 @@ class ApplicationController < ActionController::Base
   end
 
   def another_layout
-  	if current_user.tipo == "Administrador"
+    if current_user
+      if current_user.tipo == "Administrador"
         "layout"
-    else
+      else
         "invitado"
-    end
+      end
+    else
+      "error"
+    end  	
   end
 
 end

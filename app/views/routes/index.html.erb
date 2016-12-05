@@ -8,7 +8,8 @@
                 <thead>
                   <tr>      
                     <th>Nombre</th>                    
-                    <th>Precio Empresa</th>
+                    <th>Precio Empresa 2 ejes</th>
+                    <th>Precio Empresa 3 ejes</th>
                     <th>Precio Chofer</th>
                     <th>Empresa</th>
                     <th colspan="3"></th>
@@ -19,7 +20,8 @@
                   <% @routes.each do |route| %>
                     <tr>
                       <td><%= route.Nombre %></td>
-                      <td><%= route.Precio_Empresa %></td>
+                      <td><%= route.Precio_Empresa_2Ejes %></td>
+                      <td><%= route.Precio_Empresa_3Ejes %></td>
                       <td><%= route.Precio_Chofer %></td>
                       <td><%= Company.find(route.companies_id).Nombre %></td>
                       <td><%= link_to 'Show', route %></td>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  layout :another_layout
-  before_action :set_user, :require_user, only: [:show, :edit, :update, :destroy]
+  layout "default"
+  before_action :require_user, only: [:show, :edit, :update, :destroy, :index]
 
   # GET /users
   # GET /users.json

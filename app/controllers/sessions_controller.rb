@@ -5,8 +5,12 @@ class SessionsController < ApplicationController
 
   def create
     if user = User.find_by(params[:username], params[:password_digest])
-      session[:current_user_id] = user.id      
-      redirect_to root_url
+      if user.Activo == false        
+        redirect_to login_path, notice: 'Error. Su cuenta no ha sido activada'
+      else
+        session[:current_user_id] = user.id      
+        redirect_to root_url
+      end
     else
       render 'new'
     end
@@ -15,7 +19,6 @@ class SessionsController < ApplicationController
   def destroy
     # Remove the user id from the session
     @_current_user = session[:current_user_id] = nil    
-    @_admin_layout = session[:layout] = nil
     redirect_to login_path
   end
 end

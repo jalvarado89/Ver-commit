@@ -1,1 +1,0 @@
-json.partial! "num_contenedors/num_contenedor", num_contenedor: @num_contenedor
