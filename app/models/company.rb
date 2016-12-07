@@ -1,5 +1,5 @@
 class Company < ActiveRecord::Base	
-	has_many :navieras
+	has_many :Navieras
 	belongs_to :Asignation, optional: true
 	has_many :Users
 
