@@ -5,7 +5,7 @@ class CreateAsignations < ActiveRecord::Migration[5.0]
       t.string :fecha
       t.string :hora
       t.boolean :Activo
-
+      t.integer :predios_id2
       t.timestamps
     end
   end

@@ -3,8 +3,7 @@ class Asignation < ActiveRecord::Base
 	
 	belongs_to :Num_Contenedor, optional: true
 	has_many :Companies
-	has_many :occurances_as_predios, :class_name => “Predio”, :foreign_key => “predios_id”
-	has_many :occurances_as_predios2, :class_name => “Predio”, :foreign_key => “predios_id2”
+	has_many :Predios
 	has_many :Plantum
 	has_many :Navieras
 	has_many :Cliente_Navieras
