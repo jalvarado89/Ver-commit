@@ -5,7 +5,13 @@ class RoutesController < ApplicationController
   # GET /routes
   # GET /routes.json
   def index
-    @routes = Route.all
+    if current_user
+      if current_user.tipo == "Administrador"
+        @routes = Route.all
+      else
+        redirect_to "/"
+      end
+    end
   end
 
   # GET /routes/1
@@ -15,7 +21,13 @@ class RoutesController < ApplicationController
 
   # GET /routes/new
   def new
-    @route = Route.new
+    if current_user
+      if current_user.tipo == "Administrador"
+        @route = Route.new
+      else
+        redirect_to "/"
+      end
+    end    
   end
 
   # GET /routes/1/edit
@@ -29,7 +41,7 @@ class RoutesController < ApplicationController
 
     respond_to do |format|
       if @route.save
-        format.html { redirect_to @route, notice: 'Route was successfully created.' }
+        format.html { redirect_to @route, notice: 'Exito. Datos Guardados.' }
         format.json { render :show, status: :created, location: @route }
       else
         format.html { render :new }
@@ -43,7 +55,7 @@ class RoutesController < ApplicationController
   def update
     respond_to do |format|
       if @route.update(route_params)
-        format.html { redirect_to @route, notice: 'Route was successfully updated.' }
+        format.html { redirect_to @route, notice: 'Los Datos fueron Actualizados.' }
         format.json { render :show, status: :ok, location: @route }
       else
         format.html { render :edit }
@@ -57,7 +69,7 @@ class RoutesController < ApplicationController
   def destroy
     @route.destroy
     respond_to do |format|
-      format.html { redirect_to routes_url, notice: 'Route was successfully destroyed.' }
+      format.html { redirect_to routes_url, notice: 'Registro Eliminado Exitosamente.' }
       format.json { head :no_content }
     end
   end

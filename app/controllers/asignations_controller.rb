@@ -40,7 +40,7 @@ class AsignationsController < ApplicationController
 
     respond_to do |format|
       if @asignation.save
-        format.html { redirect_to @asignation, notice: 'Asignation was successfully created.' }
+        format.html { redirect_to @asignation, notice: 'Exito. Datos Guardados.' }
         format.json { render :show, status: :created, location: @asignation }
       else
         format.html { render :new }
@@ -56,7 +56,7 @@ class AsignationsController < ApplicationController
     respond_to do |format|
       
       if @asignation.update(asignation_params)        
-        format.html { redirect_to @asignation, notice: 'Asignation was successfully updated.' }
+        format.html { redirect_to @asignation, notice: 'Los Datos fueron Actualizados.' }
         format.json { render :show, status: :ok, location: @asignation }        
       else
         format.html { render :edit }
@@ -70,7 +70,7 @@ class AsignationsController < ApplicationController
   def destroy    
     @asignation.destroy
     respond_to do |format|
-      format.html { redirect_to asignations_url, notice: 'Asignation was successfully destroyed.' }
+      format.html { redirect_to asignations_url, notice: 'Registro Eliminado Exitosamente.' }
       format.json { head :no_content }
     end
   end

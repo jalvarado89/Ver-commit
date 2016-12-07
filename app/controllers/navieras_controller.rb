@@ -5,7 +5,13 @@ class NavierasController < ApplicationController
   # GET /navieras
   # GET /navieras.json
   def index
-    @navieras = Naviera.all    
+    if current_user
+      if current_user.tipo == "Administrador"
+        @navieras = Naviera.all
+      else
+        redirect_to "/"
+      end
+    end
   end
 
   # GET /navieras/1
@@ -14,8 +20,14 @@ class NavierasController < ApplicationController
   end
 
   # GET /navieras/new
-  def new    
-    @naviera = Naviera.new
+  def new
+  if current_user
+      if current_user.tipo == "Administrador"
+        @naviera = Naviera.new
+      else
+        redirect_to "/"
+      end
+    end    
   end
 
   # GET /navieras/1/edit
@@ -29,7 +41,7 @@ class NavierasController < ApplicationController
     
     respond_to do |format|
       if @naviera.save
-        format.html { redirect_to @naviera, notice: 'Naviera was successfully created.' }
+        format.html { redirect_to @naviera, notice: 'Exito. Datos Guardados.' }
         format.json { render :show, status: :created, location: @naviera }
       else
         format.html { render :new }
@@ -43,7 +55,7 @@ class NavierasController < ApplicationController
   def update
     respond_to do |format|
       if @naviera.update(naviera_params)
-        format.html { redirect_to @naviera, notice: 'Naviera was successfully updated.' }
+        format.html { redirect_to @naviera, notice: 'Los Datos fueron Actualizados.' }
         format.json { render :show, status: :ok, location: @naviera }
       else
         format.html { render :edit }
@@ -57,7 +69,7 @@ class NavierasController < ApplicationController
   def destroy
     @naviera.destroy
     respond_to do |format|
-      format.html { redirect_to navieras_url, notice: 'Naviera was successfully destroyed.' }
+      format.html { redirect_to navieras_url, notice: 'Registro Eliminado Exitosamente.' }
       format.json { head :no_content }
     end
   end

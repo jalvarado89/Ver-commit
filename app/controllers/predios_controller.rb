@@ -5,7 +5,13 @@ class PrediosController < ApplicationController
   # GET /predios
   # GET /predios.json
   def index
-    @predios = Predio.all
+    if current_user
+      if current_user.tipo == "Administrador"
+        @predios = Predio.all
+      else
+        redirect_to "/"
+      end
+    end    
   end
 
   # GET /predios/1
@@ -15,7 +21,13 @@ class PrediosController < ApplicationController
 
   # GET /predios/new
   def new
-    @predio = Predio.new
+    if current_user
+      if current_user.tipo == "Administrador"
+        @predio = Predio.new
+      else
+        redirect_to "/"
+      end
+    end    
   end
 
   # GET /predios/1/edit
@@ -29,7 +41,7 @@ class PrediosController < ApplicationController
 
     respond_to do |format|
       if @predio.save
-        format.html { redirect_to @predio, notice: 'Predio was successfully created.' }
+        format.html { redirect_to @predio, notice: 'Exito. Datos Guardados.' }
         format.json { render :show, status: :created, location: @predio }
       else
         format.html { render :new }
@@ -43,7 +55,7 @@ class PrediosController < ApplicationController
   def update
     respond_to do |format|
       if @predio.update(predio_params)
-        format.html { redirect_to @predio, notice: 'Predio was successfully updated.' }
+        format.html { redirect_to @predio, notice: 'Los Datos fueron Actualizados.' }
         format.json { render :show, status: :ok, location: @predio }
       else
         format.html { render :edit }
@@ -57,7 +69,7 @@ class PrediosController < ApplicationController
   def destroy
     @predio.destroy
     respond_to do |format|
-      format.html { redirect_to predios_url, notice: 'Predio was successfully destroyed.' }
+      format.html { redirect_to predios_url, notice: 'Registro Eliminado Exitosamente.' }
       format.json { head :no_content }
     end
   end

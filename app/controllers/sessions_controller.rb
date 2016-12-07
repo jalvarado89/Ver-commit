@@ -3,15 +3,16 @@ class SessionsController < ApplicationController
 	def new
   end
 
-  def create
-    if user = User.find_by(params[:username], params[:password_digest])
-      if user.Activo == false        
-        redirect_to login_path, notice: 'Error. Su cuenta no ha sido activada'
+  def create 
+    if (@user = User.where(email: params[:email], password_digest: params[:password_digest]).first)      
+      if (@user.Activo)
+        session[:current_user_id] = @user.id
+        redirect_to root_url        
       else
-        session[:current_user_id] = user.id      
-        redirect_to root_url
+        redirect_to login_path, notice: 'Error. Su cuenta no ha sido activada'
       end
     else
+      fd;
       render 'new'
     end
   end

@@ -5,7 +5,13 @@ class TrucksController < ApplicationController
   # GET /trucks
   # GET /trucks.json
   def index
-    @trucks = Truck.all
+    if current_user
+      if current_user.tipo == "Administrador"
+        @trucks = Truck.all
+      end
+    else
+      redirect_to "/"
+    end
   end
 
   # GET /trucks/1
@@ -15,7 +21,13 @@ class TrucksController < ApplicationController
 
   # GET /trucks/new
   def new
-    @truck = Truck.new
+    if current_user
+      if current_user.tipo == "Administrador"
+        @truck = Truck.new
+      end      
+    else
+      redirect_to "/"
+    end    
   end
 
   # GET /trucks/1/edit
@@ -29,7 +41,7 @@ class TrucksController < ApplicationController
 
     respond_to do |format|
       if @truck.save
-        format.html { redirect_to @truck, notice: 'Truck was successfully created.' }
+        format.html { redirect_to @truck, notice: 'Exito. Datos Guardados' }
         format.json { render :show, status: :created, location: @truck }
       else
         format.html { render :new }
@@ -43,7 +55,7 @@ class TrucksController < ApplicationController
   def update
     respond_to do |format|
       if @truck.update(truck_params)
-        format.html { redirect_to @truck, notice: 'Truck was successfully updated.' }
+        format.html { redirect_to @truck, notice: 'Los Datos fueron Actualizados.' }
         format.json { render :show, status: :ok, location: @truck }
       else
         format.html { render :edit }
@@ -57,7 +69,7 @@ class TrucksController < ApplicationController
   def destroy
     @truck.destroy
     respond_to do |format|
-      format.html { redirect_to trucks_url, notice: 'Truck was successfully destroyed.' }
+      format.html { redirect_to trucks_url, notice: 'Registro Eliminado Exitosamente.' }
       format.json { head :no_content }
     end
   end

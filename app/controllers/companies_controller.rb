@@ -5,7 +5,13 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    if current_user
+      if current_user.tipo == "Administrador"
+        @companies = Company.all
+      else
+        redirect_to "/"
+      end
+    end    
   end
 
   # GET /companies/1
@@ -15,7 +21,13 @@ class CompaniesController < ApplicationController
 
   # GET /companies/new
   def new
-    @company = Company.new
+    if current_user
+      if current_user.tipo == "Administrador"
+        @company = Company.new
+      else
+        redirect_to "/"
+      end
+    end    
   end
 
   # GET /companies/1/edit
@@ -29,7 +41,7 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
-        format.html { redirect_to @company, notice: 'La Empresa fue Creado Exitosamente.' }
+        format.html { redirect_to @company, notice: 'Exito. Datos Guardados.' }
         format.json { render :show, status: :created, location: @company }
       else
         format.html { render :new }
@@ -43,7 +55,7 @@ class CompaniesController < ApplicationController
   def update
     respond_to do |format|
       if @company.update(company_params)
-        format.html { redirect_to @company, notice: 'La Empresa fue Actualizado Exitosamente.' }
+        format.html { redirect_to @company, notice: 'Los Datos fueron Actualizados.' }
         format.json { render :show, status: :ok, location: @company }
       else
         format.html { render :edit }
@@ -57,7 +69,7 @@ class CompaniesController < ApplicationController
   def destroy
     @company.destroy
     respond_to do |format|
-      format.html { redirect_to companies_url, notice: 'Company was successfully destroyed.' }
+      format.html { redirect_to companies_url, notice: 'Registro Eliminado Exitosamente.' }
       format.json { head :no_content }
     end
   end

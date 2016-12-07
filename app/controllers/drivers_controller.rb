@@ -5,7 +5,13 @@ class DriversController < ApplicationController
   # GET /drivers
   # GET /drivers.json
   def index
-    @drivers = Driver.all
+    if current_user
+      if current_user.tipo == "Administrador"
+        @drivers = Driver.all
+      else
+        redirect_to "/"
+      end
+    end    
   end
 
   # GET /drivers/1
@@ -15,7 +21,13 @@ class DriversController < ApplicationController
 
   # GET /drivers/new
   def new
-    @driver = Driver.new
+    if current_user
+      if current_user.tipo == "Administrador"
+        @driver = Driver.new
+      else
+        redirect_to "/"
+      end
+    end    
   end
 
   # GET /drivers/1/edit
@@ -29,7 +41,7 @@ class DriversController < ApplicationController
 
     respond_to do |format|
       if @driver.save
-        format.html { redirect_to @driver, notice: 'El Chofer fue Creado Exitosamente' }
+        format.html { redirect_to @driver, notice: 'Exito. Datos Guardados' }
         format.json { render :show, status: :created, location: @driver }
       else
         format.html { render :new }
@@ -43,7 +55,7 @@ class DriversController < ApplicationController
   def update
     respond_to do |format|
       if @driver.update(driver_params)
-        format.html { redirect_to @driver, notice: 'El Chofer fue Actualizado Exitosamente.' }
+        format.html { redirect_to @driver, notice: 'Los Datos fueron Actualizados.' }
         format.json { render :show, status: :ok, location: @driver }
       else
         format.html { render :edit }
@@ -57,7 +69,7 @@ class DriversController < ApplicationController
   def destroy
     @driver.destroy
     respond_to do |format|
-      format.html { redirect_to drivers_url, notice: 'Driver was successfully destroyed.' }
+      format.html { redirect_to drivers_url, notice: 'Registro Eliminado Exitosamente.' }
       format.json { head :no_content }
     end
   end

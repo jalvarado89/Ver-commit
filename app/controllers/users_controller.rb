@@ -1,11 +1,17 @@
 class UsersController < ApplicationController
   layout "default"
-  before_action :require_user, only: [:show, :edit, :update, :destroy, :index]
+  before_action :require_user, :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if current_user
+      if current_user.tipo == "Administrador"
+        @users = User.all
+      else
+        redirect_to "/"
+      end
+    end
   end
 
   # GET /users/1
@@ -15,7 +21,13 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    if current_user
+      if current_user.tipo == "Administrador"
+        @user = User.new
+      else
+        redirect_to "/"
+      end
+    end    
   end
 
   # GET /users/1/edit
@@ -25,13 +37,17 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params) 
+    @user = User.new(user_params)
     @user.companies_id = 1
-    if @user.save      
-      redirect_to login_path, notice: 'Exito. Su cuenta debe ser Activada. Contacte con la Empresa'
+    if @user.save
+      if current_user.tipo == "Administrador"
+        redirect_to login_path, notice: 'Exito. Esta cuenta se debe Activar.'
+      else
+        redirect_to login_path, notice: 'Exito. Su cuenta debe ser Activada. Contacte con la Empresa'
+      end
     else 
       redirect_to new_user_path, notice: 'Error. Datos no guardados'
-    end 
+    end
   end
 
   # PATCH/PUT /users/1

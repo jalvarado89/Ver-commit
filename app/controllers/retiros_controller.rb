@@ -5,7 +5,7 @@ class RetirosController < ApplicationController
   # GET /retiros
   # GET /retiros.json
   def index
-    @retiros = Retiro.all
+    redirect_to "/"
   end
 
   #informe retiros efectuados por semana
@@ -40,7 +40,7 @@ class RetirosController < ApplicationController
 
   # GET /retiros/new
   def new
-    @retiro = Retiro.new
+    redirect_to "/"
   end
 
   # GET /retiros/1/edit

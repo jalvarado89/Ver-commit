@@ -5,7 +5,13 @@ class ImplementsController < ApplicationController
   # GET /implements
   # GET /implements.json
   def index
-    @implements = Implement.all
+    if current_user
+      if current_user.tipo == "Administrador"
+        @implements = Implement.all
+      else
+        redirect_to "/"
+      end
+    end    
   end
 
   # GET /implements/1
@@ -15,7 +21,13 @@ class ImplementsController < ApplicationController
 
   # GET /implements/new
   def new
-    @implement = Implement.new
+    if current_user
+      if current_user.tipo == "Administrador"
+        @implement = Implement.new
+      else
+        redirect_to "/"
+      end
+    end    
   end
 
   # GET /implements/1/edit
@@ -29,7 +41,7 @@ class ImplementsController < ApplicationController
 
     respond_to do |format|
       if @implement.save
-        format.html { redirect_to @implement, notice: 'Implement was successfully created.' }
+        format.html { redirect_to @implement, notice: 'Exito. Datos Guardados.' }
         format.json { render :show, status: :created, location: @implement }
       else
         format.html { render :new }
@@ -43,7 +55,7 @@ class ImplementsController < ApplicationController
   def update
     respond_to do |format|
       if @implement.update(implement_params)
-        format.html { redirect_to @implement, notice: 'Implement was successfully updated.' }
+        format.html { redirect_to @implement, notice: 'Los Datos fueron Actualizados.' }
         format.json { render :show, status: :ok, location: @implement }
       else
         format.html { render :edit }
@@ -57,7 +69,7 @@ class ImplementsController < ApplicationController
   def destroy
     @implement.destroy
     respond_to do |format|
-      format.html { redirect_to implements_url, notice: 'Implement was successfully destroyed.' }
+      format.html { redirect_to implements_url, notice: 'Registro Eliminado Exitosamente.' }
       format.json { head :no_content }
     end
   end

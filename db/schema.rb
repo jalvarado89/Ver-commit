@@ -120,21 +120,6 @@ ActiveRecord::Schema.define(version: 20161128004554) do
     t.index ["companies_id"], name: "index_predios_on_companies_id", using: :btree
   end
 
-  create_table "retiro_contenedors", force: :cascade do |t|
-    t.integer  "num_contenedors_id"
-    t.integer  "drivers_id"
-    t.integer  "trucks_id"
-    t.integer  "implements_id"
-    t.integer  "retiros_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.index ["drivers_id"], name: "index_retiro_contenedors_on_drivers_id", using: :btree
-    t.index ["implements_id"], name: "index_retiro_contenedors_on_implements_id", using: :btree
-    t.index ["num_contenedors_id"], name: "index_retiro_contenedors_on_num_contenedors_id", using: :btree
-    t.index ["retiros_id"], name: "index_retiro_contenedors_on_retiros_id", using: :btree
-    t.index ["trucks_id"], name: "index_retiro_contenedors_on_trucks_id", using: :btree
-  end
-
   create_table "retiros", force: :cascade do |t|
     t.string   "fecha"
     t.integer  "num_contenedors_id"

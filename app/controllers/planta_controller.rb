@@ -5,7 +5,13 @@ class PlantaController < ApplicationController
   # GET /planta
   # GET /planta.json
   def index
-    @planta = Plantum.all
+    if current_user
+      if current_user.tipo == "Administrador"
+        @planta = Plantum.all
+      else
+        redirect_to "/"
+      end
+    end    
   end
 
   # GET /planta/1
@@ -15,7 +21,13 @@ class PlantaController < ApplicationController
 
   # GET /planta/new
   def new
-    @plantum = Plantum.new
+    if current_user
+      if current_user.tipo == "Administrador"
+        @plantum = Plantum.new
+      else
+        redirect_to "/"
+      end
+    end    
   end
 
   # GET /planta/1/edit
@@ -29,7 +41,7 @@ class PlantaController < ApplicationController
 
     respond_to do |format|
       if @plantum.save
-        format.html { redirect_to @plantum, notice: 'Plantum was successfully created.' }
+        format.html { redirect_to @plantum, notice: 'Exito. Datos Guardados.' }
         format.json { render :show, status: :created, location: @plantum }
       else
         format.html { render :new }
@@ -43,7 +55,7 @@ class PlantaController < ApplicationController
   def update
     respond_to do |format|
       if @plantum.update(plantum_params)
-        format.html { redirect_to @plantum, notice: 'Plantum was successfully updated.' }
+        format.html { redirect_to @plantum, notice: 'Los Datos fueron Actualizados.' }
         format.json { render :show, status: :ok, location: @plantum }
       else
         format.html { render :edit }
@@ -57,7 +69,7 @@ class PlantaController < ApplicationController
   def destroy
     @plantum.destroy
     respond_to do |format|
-      format.html { redirect_to planta_url, notice: 'Plantum was successfully destroyed.' }
+      format.html { redirect_to planta_url, notice: 'Registro Eliminado Exitosamente.' }
       format.json { head :no_content }
     end
   end
