@@ -9,7 +9,7 @@ Company.create(Nombre: 'Transportes Juanva', Telefono: '2473-3751', Correo: 'inf
 User.create(Nombre: "Jason", Apellidos: "Alvarado Ch.", Telefono: "8654-6540", email: "tpizo@hotmail.com", password_digest: "legolas2416", tipo: "Administrador", Activo: true, companies_id: 1)
 User.create(Nombre: "Invitado", Apellidos: "NoTiene", Telefono: "8888-8888", email: "invitado@hotmail.com", password_digest: "invitado123", tipo: "Invitado", Activo: true, companies_id: 1)
 Company.create(Nombre: 'Visa', Telefono: '8888-8888', Correo: 'NoTiene', Direccion: 'Pital')
-Naviera.create(Nombre: 'Marfret', Telefono: '8888-8888', Correo: 'NoTiene', Direccion: 'Limon', companies_id: 2)
+Naviera.create(Nombre: 'Marfret', Telefono: '8888-8888', Correo: 'NoTiene', Direccion: 'Limon', company_id: 2)
 ClienteNaviera.create(Nombre: 'Kiwi', Telefono: '8888-8888', Correo: 'NoTiene', navieras_id: 1)
 Plantum.create(Nombre: 'Visa', Telefono: '8888-8888', Correo: 'NoTiene', Direccion: 'Pital', companies_id: 2)
 Predio.create(Nombre: 'Grant', Telefono: '8888-8888', Correo: 'NoTiene', Direccion: 'Limon', companies_id: 2)
