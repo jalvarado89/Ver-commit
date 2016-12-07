@@ -191,7 +191,6 @@ ActiveRecord::Schema.define(version: 20161128004554) do
   add_foreign_key "asignations", "navieras", column: "navieras_id"
   add_foreign_key "asignations", "planta"
   add_foreign_key "asignations", "predios", column: "predios_id"
-  add_foreign_key "asignations", "predios", column: "predios_id2"
   add_foreign_key "asignations", "routes", column: "routes_id"
   add_foreign_key "cliente_navieras", "navieras", column: "navieras_id"
   add_foreign_key "implements", "trucks", column: "trucks_id"
