@@ -1,5 +1,5 @@
 class Retiro < ActiveRecord::Base
-	belongs_to :Asignation, optional: true, :primary_key => "id", :foreign_key => "asignations_id"
+	has_many :Asignations, :primary_key => "id", :foreign_key => "asignations_id"
 	
 	belongs_to :Num_Contenedors, optional: true, :primary_key => "id", :foreign_key => "num_contenedors_id"
 	belongs_to :Drivers, optional: true, :primary_key => "id", :foreign_key => "drivers_id"

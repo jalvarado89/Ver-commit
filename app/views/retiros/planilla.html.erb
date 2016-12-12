@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="col-sm-14">
+    <div class="bs-calltoaction bs-calltoaction-default">
+      <div class="row">
+        <div class="col-md-12 cta-contents">
+          <div class="cta-desc">
+          <table class="table table-user-information">
+              <thead>
+                <tr>
+                  <td class="col-sm-1"><h5> Semana: </h5></td>
+                  <td class="col-sm-1"><h5> Fecha: </h5></td>
+                  <td class="col-sm-1"><h5> Empresa: </h5></td>
+                  <td class="col-sm-1"><h5> Ruta: </h5></td>
+                  <td class="col-sm-2"><h5> Contenedor: </h5></td>
+                  <td class="col-sm-2"><h5> Precio: </h5></td>
+                  <td class="col-sm-2"><h5> Chofer: </h5></td>
+                  <td class="col-sm-3"><h5> Camion: </h5></td>
+                  <td class="col-sm-3"><h5> Implemento: </h5></td>
+                </tr>
+              </thead>
+          </table>
+          <% @Precio = 0 %>
+          <% @planillas.each do |planilla| %>
+            <table class="table table-user-information">
+              <tbody>
+                <tr>
+                  <td class="col-sm-1">
+                    <%= planilla.Num_Semana %>
+                  </td>
+                  <td class="col-sm-1">
+                    <%= planilla.fecha %>
+                  </td>
+                  <td class="col-sm-1">
+                    <%= Company.find(planilla.companies_id).Nombre %>
+                  </td>
+                  <td class="col-sm-1">
+                    <%= planilla.Nombre %>
+                  </td>
+                  <td class="col-sm-2">
+                    <%= planilla.Sigla + " " + planilla.Numero %>
+                  </td>
+                  <td class="col-sm-1">                    
+                      <%= planilla.Precio_Chofer %>
+                      <%= hidden_field(:valor, :value => @Precio += planilla.Precio_Chofer) %>
+                  </td>
+                  <td class="col-sm-2">
+                    <%= Driver.find(planilla.drivers_id).Nombre %>
+                  </td>
+                  <td class="col-sm-2">
+                    <%= Truck.find(planilla.trucks_id).Placa %>
+                  </td>
+                  <td class="col-sm-3">
+                    <%= Implement.find(planilla.implements_id).Num_Chasis %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          <% end %>
+          <label class="control-label" style="float:right">Total: <%= @Precio %></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

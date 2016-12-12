@@ -1,6 +1,6 @@
 class AsignationsController < ApplicationController
   layout :another_layout
-  before_action :require_user, only: [:show, :edit, :update, :destroy, :new, :index]
+  before_action :require_user, :set_asignation, only: [:show, :edit, :update, :destroy]
 
   # GET /asignations
   # GET /asignations.json
@@ -34,19 +34,13 @@ class AsignationsController < ApplicationController
   # POST /asignations.json
   def create    
     @asignation = Asignation.new(asignation_params)
-    @asignation.Activo = true;
-    #@asignation.Fecha_Colocacion.gsub('-', '/')
+    @asignation.Activo = true;    
 
-
-    respond_to do |format|
       if @asignation.save
-        format.html { redirect_to @asignation, notice: 'Exito. Datos Guardados.' }
-        format.json { render :show, status: :created, location: @asignation }
+        redirect_to asignations_path, notice: 'Exito. Datos Guardados.'        
       else
-        format.html { render :new }
-        format.json { render json: @asignation.errors, status: :unprocessable_entity }
+        render :new, notice: 'Exito. Datos Guardados.'
       end
-    end
   end
 
   # PATCH/PUT /asignations/1

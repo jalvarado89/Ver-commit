@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="col-sm-12">
+    <div class="bs-calltoaction bs-calltoaction-default">
+      <div class="row">
+        <div class="col-md-9 cta-contents">
+          <div class="cta-desc">                    
+          <%= form_tag prefactura_path, method: "get" do %>
+            <div class="form-group">
+              <label class="control-label" for="Num_Semana">Semana</label>
+              <input name="Num_Semana" type="text" id="alto" class="form-control" placeholder="Numero de Semana" required />
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="companies_id">Empresa</label>
+              <%= select_tag "companies_id", options_from_collection_for_select(Company.all, "id", "Nombre") %>
+            </div>
+            <input name="submit" type="submit" class="btn btn-primary pull-right" />
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,18 +10,36 @@ class RetirosController < ApplicationController
 
   #informe retiros efectuados por semana
   def ver_retiros
+  end  
+  
+  def enviar_retiros
+    @retiros = Retiro.select('"asignations"."id", "asignations"."Num_Semana", "asignations"."companies_id", "num_contenedors"."Sigla", "num_contenedors"."Numero", "retiros"."drivers_id", "retiros"."trucks_id", "retiros"."implements_id"').joins('LEFT OUTER JOIN "asignations" ON "asignations"."id" = "retiros"."asignations_id" LEFT OUTER JOIN "num_contenedors" ON "num_contenedors"."id" = "retiros"."num_contenedors_id"').where('asignations.Num_Semana': params[:Num_Semana])    
   end
-#@retiro = Retiro.includes(:asignations, :num_contenedors, :drivers, :trucks, :implements).select('fecha, asignations.id, asignations.Num_Semana, routes.Nombre, num_contenedors.Sigla, num_contenedors.Numero, num_contenedors.Cant_Ejes, drivers.Nombre, trucks.Placa, implements.Num_Chasis').where('asignations.Num_Semana': params[:Num_Semana], 'num_contenedors.Activo': true)
-  def enviar_retiros    
-    @retiros = Retiro.joins(:Asignation).includes(:NumContenedor,:Driver, :Truck, :Implement).select(:fecha, :'asignations.id', :'asignations.Num_Semana', :'num_contenedors.Sigla', :'num_contenedors.Numero', :'num_contenedors.Cant_Ejes', :'drivers.Nombre', :'trucks.Placa', :'implements.Num_Chasis').where(:asignations => {Num_Semana: params[:Num_Semana]}).all
-    #unless @retiros      
-      #redirect_to view_path, notice: @retiros.to_sql + ' No se encontraron resultados'      
-    #end
+
+  def enviar
+  end
+
+  def retiros_pendientes
+    @retiros = Asignation.select('"asignations"."id", "asignations"."Num_Semana", "asignations"."fecha", "asignations"."hora", "asignations"."companies_id", "asignations"."navieras_id", "asignations"."cliente_navieras_id", "num_contenedors"."Sigla", "num_contenedors"."Numero"').joins('LEFT OUTER JOIN "num_contenedors" ON "num_contenedors"."asignations_id" = "asignations"."id"').where('asignations.Num_Semana': params[:Num_Semana], 'num_contenedors.Activo': true)
+  end
+
+  def mostrar_prefactura
+  end
+
+  def prefactura
+    @prefacturas = Retiro.select('"asignations"."Num_Semana", "asignations"."companies_id", "retiros"."fecha", "routes"."Precio_Empresa_2Ejes", "routes"."Precio_Empresa_3Ejes", "num_contenedors"."Sigla", "num_contenedors"."Numero", "num_contenedors"."Cant_Ejes", "retiros"."drivers_id", "retiros"."trucks_id", "retiros"."implements_id"').joins('LEFT OUTER JOIN "asignations" ON "asignations"."id" = "retiros"."asignations_id" LEFT OUTER JOIN "routes" ON "asignations"."routes_id" = "routes"."id" LEFT OUTER JOIN "num_contenedors" ON "retiros"."num_contenedors_id" = "num_contenedors"."id"').where('asignations.Num_Semana': params[:Num_Semana], 'asignations.companies_id': params[:companies_id])
+  end
+
+  def mostrar_planilla    
+  end
+
+  def planilla
+    @planillas = Retiro.select('"asignations"."Num_Semana", "asignations"."companies_id", "retiros"."fecha", "routes"."Precio_Chofer", "routes"."Nombre", "num_contenedors"."Sigla", "num_contenedors"."Numero", "retiros"."drivers_id", "retiros"."trucks_id", "retiros"."implements_id"').joins('LEFT OUTER JOIN "asignations" ON "asignations"."id" = "retiros"."asignations_id" LEFT OUTER JOIN "routes" ON "asignations"."routes_id" = "routes"."id" LEFT OUTER JOIN "num_contenedors" ON "retiros"."num_contenedors_id" = "num_contenedors"."id"').where('asignations.Num_Semana': params[:Num_Semana], 'retiros.drivers_id': params[:drivers_id])    
   end
 
   #Muestra Asignaciones Activas
   def ver
-    @asignations = Asignation.where(Activo: true)    
+    @asignations = Asignation.where(Activo: true)
   end
 
   #Muestra una Asignacion y sus respectivos N. Contenedor
@@ -53,8 +71,14 @@ class RetirosController < ApplicationController
     @retiro = Retiro.new(retiro_params)
     
       if @retiro.save
-        @num_contenedor = NumContenedor.find(@retiro.num_contenedors_id)        
-        @num_contenedor.update_attribute(:Activo, false)      
+        @num_contenedor = NumContenedor.find(@retiro.num_contenedors_id)
+        @num_contenedor.update_attribute(:Activo, false)
+
+        @valor = NumContenedor.where(asignations_id: @retiro.asignations_id, Activo: true).count#.select('COUNT(*) AS total')
+        if @valor >= 1          
+          @asignation = Asignation.find(@retiro.asignations_id)
+          @asignation.update_attribute(:Activo, false)
+        end
         redirect_to "/retiro/".to_s + @retiro.asignations_id.to_s, notice: 'Exito. Retiro fue creado.'
       else        
         redirect_to "/retiro/".to_s + @retiro.asignations_id.to_s, notice: 'Error. Datos no guardados.'

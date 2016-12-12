@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="col-sm-12">
+    <div class="bs-calltoaction bs-calltoaction-default">
+      <div class="row">
+        <div class="col-md-11 cta-contents">
+          <div class="cta-desc">
+          <table class="table table-user-information">
+              <thead>
+                <tr>
+                  <th class="col-sm-2">Nombre</th>
+                  <th class="col-sm-2">Ruta</th>
+                  <th class="col-sm-2">Precio 2 Ejes</th>
+                  <th class="col-sm-2">Precio 3 Ejes</th>
+                </tr>
+              </thead>
+          </table>
+          <% @precios.each do |precio| %>
+            <table class="table table-user-information">              
+              <tbody>
+                <tr>
+                  <td class="col-sm-2"><%= precio.Nombre %></td>
+                  <td class="col-sm-3"><%= precio.ruta %></td>
+                  <td class="col-sm-3"><%= precio.Precio_Empresa_2Ejes %></td>
+                  <td class="col-sm-2"><%= precio.Precio_Empresa_3Ejes %></td>                  
+                </tr>
+              </tbody>
+            </table>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

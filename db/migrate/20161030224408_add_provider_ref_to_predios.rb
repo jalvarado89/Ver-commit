@@ -1,5 +1,5 @@
-class AddProviderRefToPredios < ActiveRecord::Migration[5.0]
+class AddCompanyRefToPredios < ActiveRecord::Migration[5.0]
   def change
-    add_reference :predios, :companies, foreign_key: true
+    add_reference :predios, :company, foreign_key: true
   end
 end

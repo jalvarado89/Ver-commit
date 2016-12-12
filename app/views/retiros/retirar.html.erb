@@ -65,21 +65,19 @@
       <tbody>
          <tr>
           <td class="col-sm-1">
-            <%= o.collection_select(:drivers_id, Driver.all, :id, :Nombre, prompt: true) %>
-          </td>
+            <%= o.collection_select(:drivers_id, Driver.all, :id, :Nombre, prompt: true) %></td>
+
           <td class="col-sm-2">
-            <%= o.collection_select(:trucks_id, Truck.all, :id, :Placa, prompt: true) %>
-          </td>          
+            <%= o.collection_select(:trucks_id, Truck.all, :id, :Placa, prompt: true) %></td> 
+
           <td class="col-sm-2">
-            <%= o.collection_select(:implements_id, Implement.all, :id, :Num_Chasis, prompt: true) %>
-          </td>
+            <%= o.collection_select(:implements_id, Implement.all, :id, :Num_Chasis, prompt: true) %></td>
           
           <%= o.hidden_field(:asignations_id, :value => @valor = Asignation.find(@var).id) %>
           <%= o.hidden_field(:num_contenedors_id, :value => @cod) %>
           <%= o.hidden_field(:fecha, :value => Date.today) %>
           <td class="col-sm-1" colspan="5" style="text-align: left;">
-            <%= o.submit "Submit", class: "btn btn-lg btn-block" %>					
-          </td>
+            <%= o.submit "Submit", class: "btn btn-lg btn-block" %></td>
         </tr>
       </tbody>
   </table>

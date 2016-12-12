@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="col-sm-12">
+    <div class="bs-calltoaction bs-calltoaction-default">
+      <div class="row">
+        <div class="col-md-11 cta-contents">
+          <div class="cta-desc">
+          <table class="table table-user-information">
+              <thead>
+                <tr>
+                  <th class="col-sm-2">Nombre</th>
+                  <th class="col-sm-2">Telefono</th>
+                  <th class="col-sm-2">Correo</th>
+                  <th class="col-sm-2">Direccion</th>
+                </tr>
+              </thead>
+          </table>
+          <% @empresas.each do |empresa| %>
+            <table class="table table-user-information">              
+              <tbody>
+                <tr>
+                  <td class="col-sm-2"><%= empresa.Nombre %></td>
+                  <td class="col-sm-2"><%= empresa.Telefono %></td>
+                  <td class="col-sm-3"><%= empresa.Correo %></td>
+                  <td class="col-sm-2"><%= empresa.Direccion %></td>                  
+                </tr>
+              </tbody>
+            </table>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

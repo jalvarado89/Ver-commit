@@ -26,20 +26,20 @@
                 <ul class="dropdown-menu" role="menu">
 
                   <li class="dropdown dropdown-submenu">
-                    <a class="dropdown-toggle" data-toggle="dropdown">Camiones</a>
-                     <ul class="dropdown-menu">
-                      <li class="kopie"><a href="/trucks/new">Crear</a></li>
-                      <li><a href="<%= trucks_path %>">Mostrar</a></li>                      
-                    </ul>
-                  </li>
-
-                  <li class="dropdown dropdown-submenu">
                     <a class="dropdown-toggle" data-toggle="dropdown">Choferes</a>
                     <ul class="dropdown-menu">
                       <li class="kopie"><a href="/drivers/new">Crear</a></li>
                       <li><a href="<%= drivers_path %>">Mostrar</a></li>
                     </ul>
                   </li>
+
+                  <li class="dropdown dropdown-submenu">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Camiones</a>
+                     <ul class="dropdown-menu">
+                      <li class="kopie"><a href="/trucks/new">Crear</a></li>
+                      <li><a href="<%= trucks_path %>">Mostrar</a></li>                      
+                    </ul>
+                  </li>                  
 
                   <li class="dropdown dropdown-submenu">
                     <a class="dropdown-toggle" data-toggle="dropdown">Implementos</a>
@@ -128,8 +128,15 @@
 
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informes<span class="caret"></span></a>                
-                <ul class="dropdown-menu" role="menu">                  
+                <ul class="dropdown-menu" role="menu">
+                  <li> <a href="<%= mostrar_path %>">Pre-Factura</a> </li>
+                  <li> <a href="<%= buscar_path %>">Planilla</a> </li>
                   <li> <a href="<%= view_path %>">Retiros x Semana</a> </li>
+                  <li> <a href="<%= enviar_path %>">Retiros Pendientes x Semana</a> </li>
+                  <li> <a href="<%= empresas_path %>">Empresas</a> </li>
+                  <li> <a href="<%= precios_path %>">Precio Empresas</a> </li>
+                  <li> <a href="<%= precio_path %>">Precio Choferes</a> </li>
+                  <li> <a href="<%= predios_path %>">Empresas x Predio</a> </li>
                 </ul>
               </li>
 

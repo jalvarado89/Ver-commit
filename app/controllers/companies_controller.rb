@@ -14,6 +14,22 @@ class CompaniesController < ApplicationController
     end    
   end
 
+  def precio_rutas
+    @precios = Company.select('"companies"."Nombre", "routes"."Nombre" as ruta, "routes"."Precio_Empresa_2Ejes", "routes"."Precio_Empresa_3Ejes"').joins('INNER JOIN "routes" ON "companies"."id" = "routes"."companies_id"')
+  end
+
+  def precio_chofer
+    @precios = Company.select('"companies"."Nombre", "routes"."Nombre" as ruta, "routes"."Precio_Chofer"').joins('INNER JOIN "routes" ON "companies"."id" = "routes"."companies_id"')
+  end
+
+  def clientexpredio
+    @predios = Company.select('"companies"."Nombre", "predios"."Nombre" as nombrepredio, "companies"."Telefono" as numero, "predios"."Telefono"').joins('INNER JOIN "predios" ON "companies"."id" = "predios"."companies_id"')
+  end
+
+  def empresas
+    @empresas = Company.all
+  end
+
   # GET /companies/1
   # GET /companies/1.json
   def show

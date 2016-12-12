@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="col-sm-14">
+    <div class="bs-calltoaction bs-calltoaction-default">
+      <div class="row">
+        <div class="col-md-12 cta-contents">
+          <div class="cta-desc">
+          <table class="table table-user-information">
+              <thead>
+                <tr>
+                  <td class="col-sm-1"><h5> Semana: </h5></td>
+                  <td class="col-sm-1"><h5> Fecha: </h5></td>
+                  <td class="col-sm-1"><h5> Empresa: </h5></td>
+                  <td class="col-sm-2"><h5> Cant. Ejes:</h5></td>
+                  <td class="col-sm-2"><h5> Contenedor: </h5></td>
+                  <td class="col-sm-2"><h5> Precio: </h5></td>
+                  <td class="col-sm-2"><h5> Chofer: </h5></td>
+                  <td class="col-sm-3"><h5> Camion: </h5></td>
+                  <td class="col-sm-3"><h5> Implemento: </h5></td>
+                </tr>
+              </thead>
+          </table>
+          <% @Precio = 0 %>
+          <% @prefacturas.each do |prefactura| %>
+            <table class="table table-user-information">
+              <tbody>
+                <tr>
+                  <td class="col-sm-1">
+                    <%= prefactura.Num_Semana %>
+                  </td>
+                  <td class="col-sm-1">
+                    <%= prefactura.fecha %>
+                  </td>
+                  <td class="col-sm-1">
+                    <%= Company.find(prefactura.companies_id).Nombre %>
+                  </td>
+                  <td class="col-sm-2">
+                    <%= prefactura.Cant_Ejes %>
+                  </td>
+                  <td class="col-sm-2">
+                    <%= prefactura.Sigla + " " + prefactura.Numero %>
+                  </td>
+                  <td class="col-sm-1">
+                    <% if prefactura.Cant_Ejes == "2 Ejes"%>  
+                      <%= hidden_field(:valor, :value => @Precio += prefactura.Precio_Empresa_2Ejes) %>
+                      <%= prefactura.Precio_Empresa_2Ejes %>
+                    <% else %>
+                      <%= hidden_field(:valor2, :value => @Precio += prefactura.Precio_Empresa_3Ejes) %>
+                      <%= prefactura.Precio_Empresa_3Ejes %>
+                    <% end %>
+                  </td>
+                  <td class="col-sm-2">
+                    <%= Driver.find(prefactura.drivers_id).Nombre %>
+                  </td>
+                  <td class="col-sm-2">
+                    <%= Truck.find(prefactura.trucks_id).Placa %>
+                  </td>
+                  <td class="col-sm-3">
+                    <%= Implement.find(prefactura.implements_id).Num_Chasis %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          <% end %>
+          <label class="control-label" style="float:right">Total: <%= @Precio %></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

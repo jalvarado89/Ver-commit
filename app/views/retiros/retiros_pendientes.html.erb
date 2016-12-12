@@ -8,13 +8,14 @@
           <table class="table table-user-information">
               <thead>
                 <tr>
-                  <td class="col-sm-2"><h5> Asignacion # : </h5></td>
+                  <td class="col-sm-1"><h5> Asignacion # : </h5></td>
                   <td class="col-sm-1"><h5> Semana: </h5></td>
+                  <td class="col-sm-2"><h5> Fecha Colocacion: </h5></td>
+                  <td class="col-sm-2"><h5> Hora Colocacion: </h5></td>
                   <td class="col-sm-2"><h5> Empresa:</h5></td>
-                  <td class="col-sm-3"><h5> Contenedor: </h5></td>
-                  <td class="col-sm-2"><h5> Chofer: </h5></td>
-                  <td class="col-sm-3"><h5> Camion: </h5></td>
-                  <td class="col-sm-3"><h5> Implemento: </h5></td>
+                  <td class="col-sm-2"><h5> Contenedor: </h5></td>
+                  <td class="col-sm-3"><h5> Naviera: </h5></td>
+                  <td class="col-sm-3"><h5> Cliente: </h5></td>
                 </tr>
               </thead>
           </table>
@@ -22,11 +23,17 @@
             <table class="table table-user-information">              
               <tbody>
                 <tr>
-                  <td class="col-sm-2">
+                  <td class="col-sm-1">
                     <%= retiro.id %>
-                  </td>
+                  </td>                  
                   <td class="col-sm-1">
                     <%= retiro.Num_Semana %>
+                  </td>
+                  <td class="col-sm-2">
+                    <%= retiro.fecha %>
+                  </td>
+                  <td class="col-sm-2">
+                    <%= retiro.hora %>
                   </td>
                   <td class="col-sm-2">
                     <%= Company.find(retiro.companies_id).Nombre %>                    
@@ -35,13 +42,10 @@
                     <%= retiro.Sigla + " " + retiro.Numero %>
                   </td>
                   <td class="col-sm-2">
-                    <%= Driver.find(retiro.drivers_id).Nombre %>
+                    <%= Naviera.find(retiro.navieras_id).Nombre %>
                   </td>
                   <td class="col-sm-2">
-                    <%= Truck.find(retiro.trucks_id).Placa %>
-                  </td>
-                  <td class="col-sm-3">
-                    <%= Implement.find(retiro.implements_id).Num_Chasis %>
+                    <%= ClienteNaviera.find(retiro.cliente_navieras_id).Nombre %>
                   </td>
                 </tr>
               </tbody>

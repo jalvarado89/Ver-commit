@@ -11,8 +11,7 @@ class SessionsController < ApplicationController
       else
         redirect_to login_path, notice: 'Error. Su cuenta no ha sido activada'
       end
-    else
-      fd;
+    else      
       render 'new'
     end
   end
