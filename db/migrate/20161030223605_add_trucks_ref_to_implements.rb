@@ -1,4 +1,4 @@
-class AddTruckRefToImplements < ActiveRecord::Migration[5.0]
+class AddTrucksRefToImplements < ActiveRecord::Migration[5.0]
   def change
     add_reference :implements, :trucks, foreign_key: true
   end

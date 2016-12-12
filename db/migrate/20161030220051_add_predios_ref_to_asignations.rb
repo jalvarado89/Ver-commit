@@ -1,4 +1,4 @@
-class AddPredioRefToAsignations < ActiveRecord::Migration[5.0]
+class AddPrediosRefToAsignations < ActiveRecord::Migration[5.0]
   def change
     add_reference :asignations, :predios, foreign_key: true    
   end

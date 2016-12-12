@@ -1,4 +1,4 @@
-class AddCompanyRefToNavieras < ActiveRecord::Migration[5.0]
+class AddCompaniesRefToNavieras < ActiveRecord::Migration[5.0]
   def change
     add_reference :navieras, :companies, foreign_key: true
   end

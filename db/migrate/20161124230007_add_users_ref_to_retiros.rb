@@ -1,4 +1,4 @@
-class AddUserRefToRetiro < ActiveRecord::Migration[5.0]
+class AddUsersRefToRetiros < ActiveRecord::Migration[5.0]
   def change
     add_reference :retiros, :asignations, foreign_key: true
     add_reference :retiros, :num_contenedors, foreign_key: true
