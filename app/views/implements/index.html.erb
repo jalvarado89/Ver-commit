@@ -1,36 +1,37 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >    
-        <div class="panel-heading">
-          <div class="span5">
-              <table class="table table-striped table-condensed">
-                <thead>
-                  <tr>      
-                    <th>N° Chasis</th>
-                    <th>N° Placa</th>
-                    <th>Empresa</th>
-                    <th>camion</th>
-                    <th colspan="3"></th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <% @implements.each do |implement| %>
-                    <tr>
-                      <td><%= implement.Num_Chasis %></td>
-                      <td><%= implement.Num_Placa %></td>
-                      <td><%= implement.Empresa %></td>
-                      <td><%= Truck.find(implement.trucks_id).Placa %></td>
-                      <td><%= link_to 'Show', implement %></td>
-                      <td><%= link_to 'Edit', edit_implement_path(implement) %></td>
-                      <td><%= link_to 'Destroy', implement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                    </tr>
-                  <% end %>
-                </tbody>
-              </table>
+  <div class="col-sm-12">
+    <div class="bs-calltoaction bs-calltoaction-default">
+      <div class="row">
+        <div class="col-md-10 cta-contents">
+          <div class="panel-heading">          
+            <table class="table table-user-information">
+              <thead>
+                <tr>      
+                  <th>N° Chasis</th>
+                  <th>N° Placa</th>
+                  <th>Empresa</th>
+                  <th>Camion</th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @implements.each do |implement| %>
+                <tr>
+                  <td class="col-sm-2"><%= implement.Num_Chasis %></td>
+                  <td class="col-sm-2"><%= implement.Num_Placa %></td>
+                  <td class="col-sm-3"><%= implement.Empresa %></td>
+                  <td class="col-sm-2"><%= Truck.find(implement.trucks_id).Placa %></td>
+                  <td><%= link_to 'Mostrar', implement, class: "btn btn-default btn-x" %></td>
+                  <td><%= link_to 'Editar', edit_implement_path(implement), class: "btn btn-default btn-x" %></td>
+                  <td><%= link_to "Eliminar", implement, method: :delete, data: {confirm: "Esta Seguro ?"}, class: "btn btn-default btn-x" %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </div>

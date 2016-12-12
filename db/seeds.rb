@@ -6,9 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Company.create(Nombre: 'Transportes Juanva', Telefono: '2473-3751', Correo: 'info@transportesjuanva.com', Direccion: 'Pital')
-User.create(Nombre: "Jason", Apellidos: "Alvarado Ch.", Telefono: "8654-6540", email: "tpizo@hotmail.com", password_digest: "legolas2416", tipo: "Administrador", Activo: true, companies_id: 1)
-User.create(Nombre: "Invitado", Apellidos: "NoTiene", Telefono: "8888-8888", email: "invitado@hotmail.com", password_digest: "invitado123", tipo: "Invitado", Activo: true, companies_id: 1)
 Company.create(Nombre: 'Visa', Telefono: '8888-8888', Correo: 'NoTiene', Direccion: 'Pital')
+User.create(Nombre: "Jason", Apellidos: "Alvarado Ch.", Telefono: "8654-6540", email: "tpizo@hotmail.com", password_digest: "legolas2416", tipo: "Administrador", Activo: true, companies_id: 1)
+User.create(Nombre: "Invitado", Apellidos: "NoTiene", Telefono: "8888-8888", email: "invitado@hotmail.com", password_digest: "invitado123", tipo: "Invitado", Activo: true, companies_id: 2)
+
 Naviera.create(Nombre: 'Marfret', Telefono: '8888-8888', Correo: 'NoTiene', Direccion: 'Limon', companies_id: 2)
 ClienteNaviera.create(Nombre: 'Kiwi', Telefono: '8888-8888', Correo: 'NoTiene', navieras_id: 1)
 Plantum.create(Nombre: 'Visa', Telefono: '8888-8888', Correo: 'NoTiene', Direccion: 'Pital', companies_id: 2)

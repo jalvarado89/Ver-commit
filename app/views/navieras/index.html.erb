@@ -1,38 +1,39 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >    
-        <div class="panel-heading">
-          <div class="span5">
-              <table class="table table-striped table-condensed">
-                <thead>
-                  <tr>      
-                    <th>Nombre</th>
-                    <th>Telefono</th>
-                    <th>Correo</th>
-                    <th>Direccion</th>
-                    <th>Empresa</th>
-                    <th colspan="3"></th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <% @navieras.each do |naviera| %>
-                    <tr>
-                      <td><%= naviera.Nombre %></td>
-                      <td><%= naviera.Telefono %></td>
-                      <td><%= naviera.Correo %></td>
-                      <td><%= naviera.Direccion %></td>
-                      <td><%= Company.find(naviera.companies_id).Nombre %></td>
-                      <td><%= link_to 'Show', naviera %></td>
-                      <td><%= link_to 'Edit', edit_naviera_path(naviera) %></td>
-                      <td><%= link_to 'Destroy', naviera, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                    </tr>
-                  <% end %>
-                </tbody>
-              </table>
+  <div class="col-sm-12">
+    <div class="bs-calltoaction bs-calltoaction-default">
+      <div class="row">
+        <div class="col-md-9 cta-contents">
+          <div class="panel-heading">
+            <table class="table table-user-information">
+              <thead>
+                <tr>      
+                  <th>Nombre</th>
+                  <th>Telefono</th>
+                  <th>Correo</th>
+                  <th>Direccion</th>
+                  <th>Empresa</th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @navieras.each do |naviera| %>
+                <tr>
+                  <td class="col-sm-2"><%= naviera.Nombre %></td>
+                  <td class="col-sm-2"><%= naviera.Telefono %></td>
+                  <td class="col-sm-2"><%= naviera.Correo %></td>
+                  <td class="col-sm-2"><%= naviera.Direccion %></td>
+                  <td class="col-sm-2"><%= Company.find(naviera.companies_id).Nombre %></td>
+                  <td><%= link_to 'Mostrar', naviera, class: "btn btn-default btn-x" %></td>
+                  <td><%= link_to 'Editar', edit_naviera_path(naviera), class: "btn btn-default btn-x" %></td>
+                  <td><%= link_to "Eliminar", naviera, method: :delete, data: {confirm: "Esta Seguro ?"}, class: "btn btn-default btn-x" %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </div>

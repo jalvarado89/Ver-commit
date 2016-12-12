@@ -1,4 +1,4 @@
-class CreatePlanta < ActiveRecord::Migration[5.0]
+class CreatePlantum < ActiveRecord::Migration[5.0]
   def change
     create_table :planta do |t|
       t.string :Nombre

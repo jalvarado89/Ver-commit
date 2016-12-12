@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
+<div class="col-sm-12">
+<div class="bs-calltoaction bs-calltoaction-default">
   <div class="row">
-    <div class="col-xs-10 col-sm-10 col-md-5 col-lg-5 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-2 toppad" >    
-        <div class="panel-heading">
-          <div class="span5">
-          <table class="table table-striped table-condensed">
+    <div class="col-md-11 cta-contents">
+        <div class="panel-heading">          
+          <table class="table table-user-information">
             <thead>
               <tr>
                 <th>Nombre</th>
@@ -18,7 +19,6 @@
                 <th colspan="3"></th>
               </tr>
             </thead>
-
             <tbody>
               <% @users.each do |user| %>
                 <tr>
@@ -34,13 +34,14 @@
                     <td>No</td>
                   <% end %>
                   <td><%= Company.find(user.companies_id).Nombre %></td>                  
-                  <td><%= link_to 'Edit', edit_user_path(user) %></td>
-                  <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td><%= link_to 'Editar', edit_user_path(user), class: "btn btn-default btn-x" %></td>
+                  <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-x" %></td>
                 </tr>
               <% end %>
             </tbody>
           </table>
           </div>
+        </div>
         </div>
       </div>
     </div>

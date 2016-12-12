@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
+<div class="col-sm-12">
+    <div class="bs-calltoaction bs-calltoaction-default">
   <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >    
-        <div class="panel-heading">
-          <div class="span5">
-              <table class="table table-striped table-condensed">
+    <div class="col-md-8 cta-contents">
+        <div class="panel-heading">          
+              <table class="table table-user-information">
                 <thead>
                   <tr>      
                     <th>Nombre</th>
@@ -18,13 +19,13 @@
                 <tbody>
                   <% @cliente_navieras.each do |cliente_naviera| %>
                     <tr>        
-                      <td><%= cliente_naviera.Nombre %></td>
-                      <td><%= cliente_naviera.Telefono %></td>
-                      <td><%= cliente_naviera.Correo %></td>
-                      <td><%= Naviera.find(cliente_naviera.navieras_id).Nombre %></td>
-                      <td><%= link_to 'Show', cliente_naviera %></td>
-                      <td><%= link_to 'Edit', edit_cliente_naviera_path(cliente_naviera) %></td>
-                      <td><%= link_to 'Destroy', cliente_naviera, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      <td class="col-sm-2"><%= cliente_naviera.Nombre %></td>
+                      <td class="col-sm-2"><%= cliente_naviera.Telefono %></td>
+                      <td class="col-sm-2"><%= cliente_naviera.Correo %></td>
+                      <td class="col-sm-2"><%= Naviera.find(cliente_naviera.navieras_id).Nombre %></td>
+                      <td><%= link_to 'Mostrar', cliente_naviera, class: "btn btn-default btn-x"%></td>
+                      <td><%= link_to 'Editar', edit_cliente_naviera_path(cliente_naviera), class: "btn btn-default btn-x" %></td>
+                      <td><%= link_to "Eliminar", cliente_naviera, method: :delete, data: {confirm: "Esta Seguro ?"}, class: "btn btn-default btn-x" %></td>
                     </tr>
                   <% end %>
                 </tbody>

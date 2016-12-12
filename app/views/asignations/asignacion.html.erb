@@ -124,7 +124,7 @@
         </div>
         <% if (contenedor.Activo) %>
         <div class="col-md-2 cta-button">
-          <%=button_to "Eliminar", contenedor, :method => :delete, :class => "btn btn-lg btn-block btn-default", :confirm => "You sure ?"%>          
+          <%= link_to "Eliminar", contenedor, method: :delete, data: {confirm: "You sure ?"}, class: "btn btn-lg btn-block btn-default" %>          
         </div>
         <% end %>
       </div>

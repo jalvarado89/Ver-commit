@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/empresas', to: 'companies#empresas'
   get '/precios', to: 'companies#precio_rutas'
   get '/precio', to: 'companies#precio_chofer'
-  get '/predios', to: 'companies#clientexpredio'
+  get '/clientepredio', to: 'companies#clientexpredio'
 
   get '/view', to: 'retiros#ver_retiros'
   get '/send', to: 'retiros#enviar_retiros'

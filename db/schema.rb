@@ -25,14 +25,14 @@ ActiveRecord::Schema.define(version: 20161128004554) do
     t.datetime "updated_at",          null: false
     t.integer  "companies_id"
     t.integer  "predios_id"
-    t.integer  "planta_id"
+    t.integer  "plantum_id"
     t.integer  "cliente_navieras_id"
     t.integer  "routes_id"
     t.integer  "navieras_id"
     t.index ["cliente_navieras_id"], name: "index_asignations_on_cliente_navieras_id", using: :btree
     t.index ["companies_id"], name: "index_asignations_on_companies_id", using: :btree
     t.index ["navieras_id"], name: "index_asignations_on_navieras_id", using: :btree
-    t.index ["planta_id"], name: "index_asignations_on_planta_id", using: :btree
+    t.index ["plantum_id"], name: "index_asignations_on_plantum_id", using: :btree
     t.index ["predios_id"], name: "index_asignations_on_predios_id", using: :btree
     t.index ["routes_id"], name: "index_asignations_on_routes_id", using: :btree
   end
@@ -174,7 +174,7 @@ ActiveRecord::Schema.define(version: 20161128004554) do
   add_foreign_key "asignations", "cliente_navieras", column: "cliente_navieras_id"
   add_foreign_key "asignations", "companies", column: "companies_id"
   add_foreign_key "asignations", "navieras", column: "navieras_id"
-  add_foreign_key "asignations", "planta", column: "planta_id"
+  add_foreign_key "asignations", "planta"
   add_foreign_key "asignations", "predios", column: "predios_id"
   add_foreign_key "asignations", "routes", column: "routes_id"
   add_foreign_key "cliente_navieras", "navieras", column: "navieras_id"
